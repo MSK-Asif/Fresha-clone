@@ -9,6 +9,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SearchResultComponent } from './pages/search-result/search-result.component';
 import { ShopSelectedComponent } from './pages/shop-selected/shop-selected.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { UserRegistrationComponent } from './pages/user-registration/user-registration.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ShopSelectedComponent } from './pages/shop-selected/shop-selected.compo
     HomeComponent,
     LoginComponent,
     SearchResultComponent,
-    ShopSelectedComponent
+    ShopSelectedComponent,
+    FooterComponent,
+    UserRegistrationComponent
   ],
   imports: [
     BrowserModule,
