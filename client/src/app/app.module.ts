@@ -11,6 +11,7 @@ import { SearchResultComponent } from './pages/search-result/search-result.compo
 import { ShopSelectedComponent } from './pages/shop-selected/shop-selected.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UserRegistrationComponent } from './pages/user-registration/user-registration.component';
+import { BookingComponent } from './pages/booking/booking.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UserRegistrationComponent } from './pages/user-registration/user-regist
     SearchResultComponent,
     ShopSelectedComponent,
     FooterComponent,
-    UserRegistrationComponent
+    UserRegistrationComponent,
+    BookingComponent
   ],
   imports: [
     BrowserModule,
