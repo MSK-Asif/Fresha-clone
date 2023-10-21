@@ -1,0 +1,94 @@
+<div class="bg-yellow-500">
+  <h1 class="font-bold text-3xl">Select Services</h1>
+  <div class="m-0">
+    <div
+      class="mb-4  bg-white hover:bg-slate-200 rounded-lg border border-slate-300 hover:border-slate-700 py-2 px-4"
+    >
+      <div class="flex items-center mb-4">
+        <div class="flex-1">
+          <h2 class="text-xl font-semibold">Service Name</h2>
+          <p class="">Time: 1 Hour</p>
+          <p class="">Price: $50</p>
+        </div>
+        <button
+          class="bg-slate-400 p-2 rounded-lg hover:bg-slate-500"
+          (click)="toggleIcon()"
+        >
+          <svg
+            class="h-4 w-4 text-slate-950 mr-1"
+            *ngIf="!selected"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+            ></path>
+          </svg>
+          <svg
+            class="h-4 w-4 text-white mr-1"
+            *ngIf="selected"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 13l4 4L19 7"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div
+      class="max-w-md bg-white hover:bg-slate-200 rounded-lg border border-slate-300 hover:border-slate-700 py-2 px-4"
+    >
+      <div class="flex items-center mb-4">
+        <div class="flex-1">
+          <h2 class="text-xl font-semibold">Service Name</h2>
+          <p class="">Time: 1 Hour</p>
+          <p class="">Price: $50</p>
+        </div>
+        <button
+          class="bg-slate-400 p-2 rounded-lg hover:bg-slate-500"
+          (click)="toggleIcon()"
+        >
+          <svg
+            class="h-4 w-4 text-slate-950 mr-1"
+            *ngIf="!selected"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+            ></path>
+          </svg>
+          <svg
+            class="h-4 w-4 text-white mr-1"
+            *ngIf="selected"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 13l4 4L19 7"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

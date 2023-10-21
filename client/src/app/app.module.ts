@@ -14,6 +14,9 @@ import { UserRegistrationComponent } from './pages/user-registration/user-regist
 import { BookingComponent } from './pages/booking/booking.component';
 import { FormsModule } from '@angular/forms';
 import { ShopCartComponent } from './components/shop-cart/shop-cart.component';
+import { HeaderComponent } from './components/header/header.component';
+import { AllServicesComponent } from './components/all-services/all-services.component';
+
 
 @NgModule({
   declarations: [
@@ -28,6 +31,10 @@ import { ShopCartComponent } from './components/shop-cart/shop-cart.component';
     UserRegistrationComponent,
     BookingComponent,
     ShopCartComponent,
+    HeaderComponent,
+    AllServicesComponent,
+    
+
   ],
   imports: [
     BrowserModule,

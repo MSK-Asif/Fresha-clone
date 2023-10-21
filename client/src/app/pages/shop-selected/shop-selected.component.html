@@ -1,1 +1,52 @@
-<p>shop-selected works!</p>
+<div class="container mx-auto">
+  <div class="mx-11">
+    <div class="shadow-md mb-4"><app-header></app-header></div>
+
+    <div class="mainbody">
+      <div class="ttl">
+        <h1 class="font-bold text-4xl py-4">Divine - Beauty from Within</h1>
+        <ul class="list-disc ml-10 sm:flex sm:space-x-14">
+          <li>4.5★★★★★(125)</li>
+          <li>Open until 18:00</li>
+          <li>Northwood Hills, Northwood</li>
+          <li>Get directions</li>
+        </ul>
+      </div>
+
+      <div class="images mx-auto w-auto">
+        <div class="grid grid-rows-2 grid-cols-3 gap-4 overflow-hidden h-1/2 screen py-2">
+          <div class="row-span-2 col-span-2 rounded-lg">
+            <img
+              src="../../../assets/shop.jpg"
+              alt="Image 1"
+              class="rounded-lg h-full w-full"
+            />
+          </div>
+
+          <div class="row-span-1 col-span-1 rounded-lg">
+            <img
+              src="../../../assets/shop-2.jpeg"
+              alt="Image 2"
+              class="rounded-lg h-full w-full"
+            />
+          </div>
+
+          <div class="col-span-1 row-span-1">
+            <img
+              src="../../../assets/shop-3.jpeg"
+              alt="Image 3"
+              class="rounded-lg h-full w-full"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- service -->
+      <div class="serviceAndBook">
+        <app-all-services></app-all-services>
+      </div>
+      <app-recommended></app-recommended>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>

@@ -1,0 +1,49 @@
+<header class="mx-3.5text-slate-950 py-10 font-bold overflow-hidden">
+  <div class=" flex justify-between items-center">
+    <div class="flex items-center">
+      <h1 class="text-4xl">fresha</h1>
+    </div>
+
+    <div *ngIf="!homePath"><app-search></app-search></div>
+
+    <div class="flex">
+      <!-- For Business Button -->
+      <a
+        *ngIf="homePath"
+        href="#"
+        class="rounded-full bg-white py-3 px-4 mr-2 border border-slate-950 hover:bg-slate-200"
+        >For Business</a
+      >
+      <!-- Menu Button -->
+      <div class="">
+        <button
+          class="flex rounded-full bg-white py-3 px-4 ml-2 border border-slate-950 hover:bg-slate-200"
+          (click)="toggleMenu()"
+        >
+          <span>Menu</span>
+          <svg
+            class="h-7 w-5 text-slate-950"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <!-- menu options -->
+        <div
+          *ngIf="menuOpen"
+          class="absolute bg-white text-gray-800 mt-2 py-2 px-4 rounded-lg"
+        >
+          <a href="#" class="block hover:underline">Option 1</a>
+          <a href="#" class="block hover:underline">Option 2</a>
+          <a href="#" class="block hover:underline">Option 3</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
