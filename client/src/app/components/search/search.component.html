@@ -1,1 +1,61 @@
-<p>search works!</p>
+<div
+  class="flex bg-white justify-around overflow-hidden items-center h-20 border-4 border-slate-200 rounded-full "
+>
+  <div class="h-full">
+    <select
+      [(ngModel)]="selectedTreatment"
+      class="p-2 border-r-4 rounded-l-lg hover:bg-slate-200 h-full w-full"
+      placeholder="Select Treatment"
+    >
+      <option value="">Select Treatment</option>
+      <option value="Service 1">Service 1</option>
+      <option value="Service 2">Service 2</option>
+      <option value="Service 3">Service 3</option>
+      <!-- Add more treatment options as needed -->
+    </select>
+  </div>
+  <div class="h-full">
+    <input
+      type="text"
+      [(ngModel)]="location"
+      placeholder="Location"
+      class="relative p-2 border-r-4 hover:bg-slate-200 h-full"
+      (input)="showCitySuggestions()"
+    />
+  </div>
+  <div class="h-full">
+    <input
+      type="date"
+      id="date" 
+      [(ngModel)]="date"
+      class="p-2 border-r-4 focus:outline-none hover:bg-slate-200 h-full"
+      
+    />
+  </div>
+  <div class="h-full">
+    <input
+      type="time"
+      [(ngModel)]="time"
+      placeholder="Time"
+      class="p-2 rounded-r-lg hover:bg-slate-200 h-full"
+    />
+  </div>
+  <div class="">
+    <button
+      class="px-4 py-2 bg-slate-950 text-white rounded-full hover:bg-slate-600"
+      (click)="search()"
+    >
+      Search
+    </button>
+  </div>
+</div>
+<div
+  *ngIf="location.length > 0"
+  class="absolute max-w-fit mt-2 bg-white border p-4 border-gray-300 rounded"
+>
+  <ul>
+    <li *ngFor="let city of citySuggestions">
+      <a href="#" (click)="selectCity(city)">{{ city }}</a>
+    </li>
+  </ul>
+</div>

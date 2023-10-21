@@ -12,6 +12,8 @@ import { ShopSelectedComponent } from './pages/shop-selected/shop-selected.compo
 import { FooterComponent } from './components/footer/footer.component';
 import { UserRegistrationComponent } from './pages/user-registration/user-registration.component';
 import { BookingComponent } from './pages/booking/booking.component';
+import { FormsModule } from '@angular/forms';
+import { ShopCartComponent } from './components/shop-cart/shop-cart.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +26,15 @@ import { BookingComponent } from './pages/booking/booking.component';
     ShopSelectedComponent,
     FooterComponent,
     UserRegistrationComponent,
-    BookingComponent
+    BookingComponent,
+    ShopCartComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
