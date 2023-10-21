@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { ShopCartComponent } from './components/shop-cart/shop-cart.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AllServicesComponent } from './components/all-services/all-services.component';
+import { SelectedServicesComponent } from './components/selected-services/selected-services.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { AllServicesComponent } from './components/all-services/all-services.com
     ShopCartComponent,
     HeaderComponent,
     AllServicesComponent,
+    SelectedServicesComponent,
     
 
   ],
