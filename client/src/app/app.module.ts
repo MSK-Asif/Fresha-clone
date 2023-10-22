@@ -17,6 +17,7 @@ import { ShopCartComponent } from './components/shop-cart/shop-cart.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AllServicesComponent } from './components/all-services/all-services.component';
 import { SelectedServicesComponent } from './components/selected-services/selected-services.component';
+import { MapComponent } from './components/map/map.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { SelectedServicesComponent } from './components/selected-services/select
     HeaderComponent,
     AllServicesComponent,
     SelectedServicesComponent,
+    MapComponent,
     
 
   ],
