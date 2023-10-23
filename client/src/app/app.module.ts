@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './components/search/search.component';
@@ -18,6 +17,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { AllServicesComponent } from './components/all-services/all-services.component';
 import { SelectedServicesComponent } from './components/selected-services/selected-services.component';
 import { MapComponent } from './components/map/map.component';
+import { ReviewCartsComponent } from './components/review-carts/review-carts.component';
+import { ConfirmationComponent } from './pages/confirmation/confirmation.component';
+
 
 
 @NgModule({
@@ -37,6 +39,8 @@ import { MapComponent } from './components/map/map.component';
     AllServicesComponent,
     SelectedServicesComponent,
     MapComponent,
+    ReviewCartsComponent,
+    ConfirmationComponent,
     
 
   ],

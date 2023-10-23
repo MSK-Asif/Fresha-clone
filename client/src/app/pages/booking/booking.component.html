@@ -1,27 +1,33 @@
+<div class="max-w-screen-xl mx-auto">
+  <app-header></app-header>
+  <div class="serviceAndBook flex  gap-4 sm:gap-10 ">
+    <div class="w-1/2">
+      <app-all-services></app-all-services>
+      <h1 class="font-bold text-3xl py-4">Select Time and date</h1>
 
-<div class=" serviceAndBook flex my-20 sm:mx-11 md:mx-20 lg:mx-32  space-x-4">
-  <div class="w-1/2">
-    <app-all-services></app-all-services>
-    <div class="flex flex-col md:flex-row  p-4 space-y-2 md:space-x-2">
-      <div class="border border-black flex-auto overflow-hidden">
-        <label for="date" class="font-bold">Select date</label>
-        <input
-          type="date"
-          id="date"
-          [(ngModel)]="date"
-          class="p-2 focus:outline-none bg-slate-200 hover:bg-slate-300 h-full w-full"
-        />
-      </div>
-      <div class="border border-black flex-auto overflow-hidden">
-        <label for="time" class="font-bold">Select time</label>
-        <input
-          type="time"
-          [(ngModel)]="time"
-          placeholder="Time"
-          class="p-2 rounded-r-lg bg-slate-200 hover:bg-slate-300 h-full w-full"
-        />
+      <div class="flex flex-col md:flex-row  md:space-x-2">
+        
+        <div class=" flex-auto overflow-hidden">
+          
+          <label for="date" class="font-bold">Select date</label>
+          <input
+            type="date"
+            id="date"
+            [(ngModel)]="date"
+            class="block p-2 rounded-lg bg-slate-200 hover:bg-slate-300 w-full h-12"
+          />
+        </div>
+        <div class="flex-auto overflow-hidden">
+          <label for="time" class="font-bold">Select time</label>
+          <input
+            type="time"
+            [(ngModel)]="time"
+            placeholder="Time"
+            class="block p-2 rounded-lg bg-slate-200 hover:bg-slate-300 w-full h-12"
+          />
+        </div>
       </div>
     </div>
+    <div class="w-1/2"><app-selected-services></app-selected-services></div>
   </div>
-  <div class="w-1/2 "><app-selected-services></app-selected-services></div>
 </div>

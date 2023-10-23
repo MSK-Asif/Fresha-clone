@@ -1,0 +1,102 @@
+<app-header></app-header>
+<div class="max-w-screen-xl mx-auto flex gap-4 sm:gap-10">
+  <div class="w-2/3">
+    <h1 class="text-4xl font-bold pb-6">Review and confirm</h1>
+    <div class="">
+      <h2 class="text-2xl font-semibold mb-4">Payment Information</h2>
+      <form (ngSubmit)="submitPayment()" class="space-y-4">
+        <div class="form-control">
+          <label
+            for="name-on-card"
+            class="block text-lg font-medium text-gray-700"
+            >Name on Card:</label
+          >
+          <input
+            type="text"
+            id="name-on-card"
+            name="name-on-card"
+            [(ngModel)]="nameOnCard"
+            required
+            class="input border rounded w-full p-4"
+            placeholder="Add card holder full name"
+          />
+        </div>
+
+        <div class="form-control">
+          <label
+            for="card-number"
+            class="block text-lg font-medium text-gray-700"
+            >Card Number:</label
+          >
+          <input
+            type="text"
+            id="card-number"
+            name="card-number"
+            [(ngModel)]="cardNumber"
+            required
+            class="input border rounded w-full p-4"
+            placeholder="**** **** **** ****"
+          />
+        </div>
+
+        <div class="flex space-x-4">
+          <div class="form-control flex-1">
+            <label
+              for="expiry-date"
+              class="block text-md font-medium text-gray-700"
+              >Expiry Date (MM/YY):</label
+            >
+            <input
+              type="text"
+              id="expiry-date"
+              name="expiry-date"
+              [(ngModel)]="expiryDate"
+              required
+              class="input border rounded w-full p-4"
+              placeholder="MM/YY"
+            />
+          </div>
+
+          <div class="form-control flex-1">
+            <label
+              for="security-code"
+              class="block text-md font-medium text-gray-700"
+              >Security Code:</label
+            >
+            <input
+              type="text"
+              id="security-code"
+              name="security-code"
+              [(ngModel)]="securityCode"
+              required
+              class="input border rounded w-full p-4"
+              placeholder="CVV"
+            />
+          </div>
+        </div>
+      </form>
+      <div class="text-justify">
+        <h1 class="text-2xl font-semibold mt-4">Cancellation policy</h1>
+        <p>
+          Cancel for free up to 6 hours ahead, otherwise you will be charged 80%
+          of the service price for late cancellation or 100% for not showing up.
+        </p>
+        <h1 class="text-2xl font-semibold mt-4">Important info</h1>
+        <p>
+          PLEASE NOTE: 9am appointments should be booked 12 hrs in advance. We
+          reserve the right to cancel 9am appointments if it has been booked
+          less than 12 hrs in advance. First time appointments: Please arrive at
+          least 5 minutes before your appointment start time to complete
+          consultation form. To save time you can also complete your form online
+          before visit. If you arrive late , please note that your session might
+          get shortened to accommodate other appointments. If you have GIFT
+          VOUCHER please type voucher code in booking notes. Cancellations
+          /reschedule Please cancel/reschedule your booking online . Our
+          cancellation policy : 6 hrs before - free less than 6 hrs - 80% fee no
+          show - 100% fee
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="w-1/3"><app-selected-services></app-selected-services></div>
+</div>

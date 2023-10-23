@@ -6,7 +6,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { SearchResultComponent } from './pages/search-result/search-result.component';
 import { ShopSelectedComponent } from './pages/shop-selected/shop-selected.component';
 import { BookingComponent } from './pages/booking/booking.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { ConfirmationComponent } from './pages/confirmation/confirmation.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,7 +16,7 @@ const routes: Routes = [
   { path: 'search', component: SearchResultComponent },
   { path: 'select', component: ShopSelectedComponent },
   { path: 'book', component: BookingComponent },
-  { path: 'footer', component:FooterComponent},
+  { path: 'confirm', component: ConfirmationComponent },
 ];
 
 @NgModule({

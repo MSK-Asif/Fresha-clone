@@ -1,10 +1,10 @@
 <div
-  class="grid grid-flow-col justify-center bg-white overflow-hidden items-center border-4 border-slate-200 rounded-full"
+  class="grid grid-flow-col justify-center bg-white overflow-hidden items-center border-2 border-slate-200 rounded-full"
 >
   <div class="h-full">
     <select
       [(ngModel)]="selectedTreatment"
-      class="p-2 border-r-4 rounded-l-lg hover:bg-slate-200 h-full w-full"
+      class="p-2 border-r-2 rounded-l-lg hover:bg-slate-200 h-full"
       placeholder="Select Treatment"
     >
       <option value="">Select Treatment</option>
@@ -19,7 +19,7 @@
       type="text"
       [(ngModel)]="location"
       placeholder="Location"
-      class="relative p-2 border-r-4 hover:bg-slate-200 h-full"
+      class="relative p-2 border-r-2 hover:bg-slate-200 h-full"
       (input)="showCitySuggestions()"
     />
   </div>
@@ -28,7 +28,7 @@
       type="date"
       id="date"
       [(ngModel)]="date"
-      class="p-2 border-r-4 focus:outline-none hover:bg-slate-200 h-full"
+      class="p-2 border-r-2 focus:outline-none hover:bg-slate-200 h-full"
     />
   </div>
   <div class="h-full">
