@@ -19,6 +19,7 @@ import { SelectedServicesComponent } from './components/selected-services/select
 import { MapComponent } from './components/map/map.component';
 import { ReviewCartsComponent } from './components/review-carts/review-carts.component';
 import { ConfirmationComponent } from './pages/confirmation/confirmation.component';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 
 
 
@@ -41,6 +42,7 @@ import { ConfirmationComponent } from './pages/confirmation/confirmation.compone
     MapComponent,
     ReviewCartsComponent,
     ConfirmationComponent,
+    UserProfileComponent,
     
 
   ],
