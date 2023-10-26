@@ -14,14 +14,18 @@
         <label
           class="block text-slate-700 text-sm font-bold mb-2"
           for="firstName"
+          
         >
           First Name *
         </label>
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none focus:shadow-outline"
+          [(ngModel)]="userData.firstName"
           id="firstName"
+          name="firstName"
           type="text"
           placeholder="First Name"
+          
         />
       </div>
       <div class="mb-4">
@@ -33,7 +37,9 @@
         </label>
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none focus:shadow-outline"
+          [(ngModel)]="userData.lastName"
           id="lastName"
+          name="lastName"
           type="text"
           placeholder="Last Name"
         />
@@ -44,7 +50,9 @@
         </label>
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none focus:shadow-outline"
+          [(ngModel)]="userData.email"
           id="email"
+          name="email"
           type="email"
           placeholder="Email"
         />
@@ -58,7 +66,9 @@
         </label>
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none focus:shadow-outline"
+          [(ngModel)]="userData.password"
           id="password"
+          name="password"
           type="password"
           placeholder="Password"
         />
@@ -69,7 +79,9 @@
         </label>
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none focus:shadow-outline"
+          [(ngModel)]="userData.mobile"
           id="mobile"
+          name="mobile"
           type="tel"
           placeholder="Mobile Number"
         />
@@ -78,6 +90,7 @@
         <button
           class="bg-slate-950 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
           type="button"
+          (click)="onSubmit()"
         >
           Continue
         </button>
