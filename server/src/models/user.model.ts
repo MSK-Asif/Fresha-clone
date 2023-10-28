@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 
 // 1. Create an interface representing a document in MongoDB.
-interface IUser {
+export interface IUser {
   firstName?: string;
   lastName?: string;
   email?: string;
@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema<IUser>({
   firstName: { type: String },
   lastName: { type: String },
   email: { type: String},
-  password: { type: String, select: false },
+  password: { type: String},
   phone: { type: String },
   createdOn: { type: Date, default: Date.now },
 });
@@ -36,4 +36,4 @@ const userSchema = new mongoose.Schema<IUser>({
 const UserModel = mongoose.model<IUser>("User", userSchema);//create model
 
 
-export default UserModel;
+export default UserModel ;

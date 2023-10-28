@@ -18,7 +18,9 @@
         </label>
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none focus:shadow-outline"
+         [(ngModel)]="userLoginData.email"
           id="email"
+          name="email"
           type="email"
           placeholder="Email"
         />
@@ -32,7 +34,9 @@
         </label>
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none focus:shadow-outline"
+         [(ngModel)]="userLoginData.password"
           id="password"
+          name="password"
           type="password"
           placeholder="Password"
         />
@@ -42,10 +46,13 @@
         <button
           class="bg-slate-950 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
           type="button"
+          (click)="onLoginSubmit()"
         >
           Continue
         </button>
       </div>
+      <h1 class="text-center mt-6">Don't have an account? <a [routerLink]="['/register']" class="text-purple-800 font-medium">Sign Up here</a></h1>
     </form>
+      
   </div>
 </div>
