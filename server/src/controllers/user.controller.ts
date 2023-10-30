@@ -61,7 +61,11 @@ const secretKey = `${process.env.SECRET_KEY}`;
 };
 //==================================================login=======================================================================
 export const userLogin: RequestHandler = async (req: Request, res: Response) => {
-  // console.log(req.body);
+   console.log('body= ',req.body);
+   console.log('cookie= ', req.cookies);
+   console.log('header= ', req.header);
+
+  
   const { email, password } = req.body;
 
   try {
@@ -70,7 +74,7 @@ export const userLogin: RequestHandler = async (req: Request, res: Response) => 
     }
 
     const user: any = await UserModel.findOne({email}).exec();//user find by email
-    console.log("user=", user, user.email, user.password);
+    //console.log("user=", user, user.email, user.password);
     //return res.json(user);
 
       if (!user) {

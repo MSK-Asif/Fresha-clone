@@ -1,7 +1,7 @@
 <header class="max-w-screen-xl mx-auto text-slate-950 py-6 font-bold">
   <div class=" flex justify-between items-center">
     <div class="flex items-center">
-      <h1 class="text-4xl">fresha</h1>
+      <a routerLink="/"><h1 class="text-4xl">fresha</h1></a>
     </div>
 
     <div *ngIf="!homePath"><app-search></app-search></div>
@@ -37,11 +37,11 @@
         <!-- menu options -->
         <div
           *ngIf="menuOpen"
-          class="absolute bg-white text-gray-800 mt-2 py-2 px-4 rounded-lg"
+          class="absolute bg-white text-gray-800 mt-2 py-2 px-4 rounded-lg z-10"
         >
-          <a href="#" class="block hover:underline">Option 1</a>
-          <a href="#" class="block hover:underline">Option 2</a>
-          <a href="#" class="block hover:underline">Option 3</a>
+          <a routerLink="/register" class="block hover:underline">Create account</a>
+          <a href="/profile" class="block hover:underline">Profile</a>
+          <a routerLink="/login" class="block hover:underline">Logout</a>
         </div>
       </div>
     </div>

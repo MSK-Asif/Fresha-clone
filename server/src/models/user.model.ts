@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 
 // 1. Create an interface representing a document in MongoDB.
 export interface IUser {
+  id?: string;
   firstName?: string;
   lastName?: string;
   email?: string;

@@ -8,6 +8,7 @@ import { ShopSelectedComponent } from './pages/shop-selected/shop-selected.compo
 import { BookingComponent } from './pages/booking/booking.component';
 import { ConfirmationComponent } from './pages/confirmation/confirmation.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 const routes: Routes = [
@@ -18,7 +19,9 @@ const routes: Routes = [
   { path: 'select', component: ShopSelectedComponent },
   { path: 'book', component: BookingComponent },
   { path: 'confirm', component: ConfirmationComponent },
-  { path : 'profile', component: UserProfileComponent}
+  {
+    path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({

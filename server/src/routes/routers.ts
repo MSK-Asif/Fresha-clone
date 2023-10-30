@@ -1,5 +1,6 @@
 import { Router, Request, Response, NextFunction } from "express";
 import { userLogin, userRegistration } from "../controllers/user.controller";
+import { profileInfo } from "../controllers/profile.controller";
 
 const router = Router();
 
@@ -14,9 +15,7 @@ router.post("/login", userLogin); //login route
 router.post("/register", userRegistration); 
 
 //profile
-router.get("/profile", (req: Request, res: Response) => {
-  res.send("Profile page");
-});
+router.get("/profile", profileInfo);
 
 
 //recommanded
