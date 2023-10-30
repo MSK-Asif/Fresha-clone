@@ -29,7 +29,7 @@ export class SearchComponent {
   ];
   citySuggestions: string[] = [];
 
-  search() {
+  searchClick() {
     // Here, you can use the 'location', 'date', and 'time' variables to filter your data or perform the search operation.
     // You might want to implement a service to fetch and filter the data based on these parameters.
   }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-selected-services',
@@ -12,9 +12,12 @@ export class SelectedServicesComponent {
     { name: 'Item 3', price: 15, image: 'item3.jpg' },
   ];
 
+  @Input() service!: string;
+
   calculateTotal(): number {
     return this.cartItems.reduce((total, item) => total + item.price, 0);
   }
+  
 }
 
 interface CartItem {

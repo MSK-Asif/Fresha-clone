@@ -1,4 +1,4 @@
-<div routerLink="/search" 
+<div [routerLink]="['/search']"
   class="grid grid-flow-col justify-center bg-white overflow-hidden items-center border-2 border-slate-200 rounded-full"
 >
   <div class="h-full">
@@ -42,7 +42,7 @@
   <div class="justify-self-end">
     <button
       class="px-4 py-2 justify-stretch bg-slate-950 text-white rounded-full hover:bg-slate-600"
-      (click)="search()"
+      (click)="searchClick()"
     >
       Search
     </button>

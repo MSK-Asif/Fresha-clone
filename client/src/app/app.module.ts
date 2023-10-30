@@ -23,6 +23,7 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { UserService } from './services/userService/user.service';
+import { DateTimeComponent } from './components/date-time/date-time.component';
 
 
 
@@ -46,6 +47,7 @@ import { UserService } from './services/userService/user.service';
     ReviewCartsComponent,
     ConfirmationComponent,
     UserProfileComponent,
+    DateTimeComponent,
   ],
   imports: [
     BrowserModule,

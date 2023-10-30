@@ -1,33 +1,30 @@
-
-  <app-header></app-header>
-  <div class="serviceAndBook flex max-w-screen-xl mx-auto gap-4 sm:gap-10 ">
-    <div class="w-1/2">
-      <app-all-services></app-all-services>
-      <h1 class="font-bold text-3xl py-4">Select Time and date</h1>
-
-      <div class="flex flex-col md:flex-row  md:space-x-2">
-        
-        <div class=" flex-auto overflow-hidden">
-          
-          <label for="date" class="font-bold">Select date</label>
-          <input
-            type="date"
-            id="date"
-            [(ngModel)]="date"
-            class="block p-2 rounded-lg bg-slate-200 hover:bg-slate-300 w-full h-12"
-          />
-        </div>
-        <div class="flex-auto overflow-hidden">
-          <label for="time" class="font-bold">Select time</label>
-          <input
-            type="time"
-            [(ngModel)]="time"
-            placeholder="Time"
-            class="block p-2 rounded-lg bg-slate-200 hover:bg-slate-300 w-full h-12"
-          />
-        </div>
-      </div>
+<app-header></app-header>
+<div class="serviceAndBook flex max-w-screen-xl mx-auto gap-4 sm:gap-10">
+  <div class="w-1/2">
+    <app-all-services *ngIf="flag == 1" (setService)="setService($event)"
+    ></app-all-services>
+    <div class="" *ngIf="flag == 2">
+      <button class="p-2 font-bold rounded-lg hover:bg-slate-400"
+      (click)="onClickBack()"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+        </svg>
+    </button>
+      <app-date-time ></app-date-time>
     </div>
-    <div class="w-1/2"><app-selected-services></app-selected-services></div>
+    
   </div>
-
+  <div class="w-1/2">
+    <app-selected-services [service]="service"> </app-selected-services>
+    <div class="mx-auto mt-2">
+      <button
+      (click)="onClickContinue()"
+        class="bg-slate-950 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+        type="button"
+      >
+        Continue
+      </button>
+    </div>
+  </div>
+</div>
