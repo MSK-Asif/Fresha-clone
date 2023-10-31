@@ -4,12 +4,11 @@
 
     <div class="mainbody">
       <div class="ttl">
-        <h1 class="font-bold text-4xl py-4">{{shopDetails.shop_name}}</h1>
+        <h1 class="font-bold text-4xl py-4">{{ shopDetails.shop_name }}</h1>
         <ul class="list-disc ml-10 sm:flex sm:space-x-14">
-          <li>{{shopDetails.ratings}}★★★★★</li>
+          <li>{{ shopDetails.ratings }}★★★★★</li>
           <li>Open until 18:00</li>
-          <li>{{shopDetails.address}}</li>
-          
+          <li>{{ shopDetails.address }}</li>
         </ul>
       </div>
 
@@ -49,7 +48,8 @@
           <h1 class="font-bold font text-4xl py-4">About</h1>
 
           <div class="about mb-6">
-            <p class="text-justify">{{shopDetails.about}}
+            <p class="text-justify">
+              {{ shopDetails.about }}
               Decadence Hair & Beauty is an exclusive boutique salon in the
               heart of Bloomsbury providing a warm, welcoming and pampering
               retreat from the noise of the city. We have the most experienced
@@ -59,39 +59,27 @@
               moment you walk through the door.
             </p>
           </div>
-          <div class="h-64 w-full"><app-map [location]="[shopDetails.longitude,shopDetails.latitude]"></app-map></div>
+          <div class="h-96 w-full">
+            <app-map
+              [location]="[shopDetails.longitude, shopDetails.latitude]"
+            ></app-map>
+          </div>
         </div>
         <div class="w-1/3 p-2">
-          <h1 class="font-bold font text-4xl py-4">All services</h1>
+          <h1 class="font-bold font text-4xl py-4 pl-4">All services</h1>
           <!-- all services -->
-          <div class="sm:flex-col md:flex-row justify-around">
-            <div
-              class="mb-4 bg-white hover:bg-slate-200 rounded-lg border border-slate-300 hover:border-slate-700 py-2 px-4"
-            >
-              <div class="flex justify-around items-center mb-4">
-                <div class="">
-                  <h2 class="text-xl font-semibold">Service 1</h2>
-                  <p class="">🕓 1 hr</p>
-                </div>
-                 <p class="font-bold text-2xl">$50</p>
-              </div>
+
+          <div *ngFor="let service of shopServicesDetail" class="flex justify-between items-center mb-4 bg-white hover:bg-slate-200 rounded-lg border border-slate-300 hover:border-slate-700 py-2 px-4">
+            <div class="">
+              <h2 class="text-xl font-semibold">{{service.service_name}}</h2>
+              <p>🕓 {{service.duration}}</p>
             </div>
-            <div
-              class="mb-4 bg-white hover:bg-slate-200 rounded-lg border border-slate-300 hover:border-slate-700 py-2 px-4"
-            >
-              <div class="flex justify-around items-center mb-4">
-                <div class="">
-                  <h2 class="text-xl font-semibold">Service 1</h2>
-                  <p class="">🕓1 Hour</p>
-                </div>
-                 <p class="font-bold text-2xl">$50</p>
-              </div>
-            </div>
+            <p class="font-bold text-2xl">${{service.price}}</p>
           </div>
 
           <div class="mx-auto">
             <button
-            routerLink="/book" 
+              routerLink="/book"
               class="bg-slate-950 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
               type="button"
             >

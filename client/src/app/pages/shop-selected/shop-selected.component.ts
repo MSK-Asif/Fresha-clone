@@ -10,6 +10,7 @@ import { ShopDataService } from 'src/app/services/shop-data.service';
 export class ShopSelectedComponent {
   shopId!: string;
   shopDetails: any;
+  shopServicesDetail: any;
   constructor(
     private route: ActivatedRoute,
     private shopService: ShopDataService
@@ -26,8 +27,12 @@ export class ShopSelectedComponent {
 
   loadShopDetails() {
     this.shopService.getShopData(this.shopId).subscribe((data:any) => {//shop data from backend
-      this.shopDetails = data;
-      console.log(this.shopDetails);
+      this.shopDetails = data.shop;
+      // console.log('data==', data); 
+      this.shopServicesDetail = data.shopServices;
+      // console.log('dtl====>>', this.shopService);
+       console.log("svcs====>>>", this.shopServicesDetail);
+
     });
   }
 }
