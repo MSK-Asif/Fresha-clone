@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 //import mapboxgl from 'mapbox-gl';
 //const mapboxgl = require('mapbox-gl');
 import * as mapboxgl from 'mapbox-gl';
@@ -10,16 +10,20 @@ import * as mapboxgl from 'mapbox-gl';
 })
 // export class MapComponent implements OnInit {
 export class MapComponent {
-
+  @Input() location:any;
   ngOnInit(): void {
-    console.log("mapboxgl");
+    console.log("mapboxgl==>>",this.location);
     (mapboxgl as any).accessToken  ='pk.eyJ1IjoiYXNpZnVycmFobWFucGlhbCIsImEiOiJjbG5qd29ldTEwMjdsMnBsazFsaW1xcm5rIn0.L5kKxav_0VTewsxlvWUS2g';
-     new mapboxgl.Map({
+     const map = new mapboxgl.Map({
        container: 'map',
        style: 'mapbox://styles/mapbox/streets-v12', // style URL
-       center: [90.42488, 23.76495], // starting position [lng, lat]
-       zoom: 9, // starting zoom
+       center:this.location, // starting position [lng, lat]
+      //  center: [90.42488, 23.76495], // starting position [lng, lat]
+       zoom: 13, // starting zoom
      });
+    const marker1 = new mapboxgl.Marker()
+      .setLngLat(this.location)
+      .addTo(map);
   }
    
 

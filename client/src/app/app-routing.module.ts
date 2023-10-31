@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'register', component: UserRegistrationComponent },
   { path: 'login', component: LoginComponent },
   { path: 'search', component: SearchResultComponent },
-  { path: 'select', component: ShopSelectedComponent },
+  { path: 'select/:id', component: ShopSelectedComponent },
   { path: 'book', component: BookingComponent },
   { path: 'confirm', component: ConfirmationComponent },
   {

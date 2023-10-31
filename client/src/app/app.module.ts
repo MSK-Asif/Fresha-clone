@@ -22,7 +22,7 @@ import { ConfirmationComponent } from './pages/confirmation/confirmation.compone
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { UserService } from './services/userService/user.service';
+import { UserService } from './services/user.service';
 import { DateTimeComponent } from './components/date-time/date-time.component';
 
 

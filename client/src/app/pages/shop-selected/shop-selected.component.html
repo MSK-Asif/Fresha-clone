@@ -1,15 +1,15 @@
-<div class="max-w-screen-xl mx-auto">
+<div class="max-w-screen-xl mx-auto" *ngIf="shopDetails">
   <div class="">
     <div class=""><app-header></app-header></div>
 
     <div class="mainbody">
       <div class="ttl">
-        <h1 class="font-bold text-4xl py-4">Divine - Beauty from Within</h1>
+        <h1 class="font-bold text-4xl py-4">{{shopDetails.shop_name}}</h1>
         <ul class="list-disc ml-10 sm:flex sm:space-x-14">
-          <li>4.5★★★★★(125)</li>
+          <li>{{shopDetails.ratings}}★★★★★</li>
           <li>Open until 18:00</li>
-          <li>Northwood Hills, Northwood</li>
-          <li>Get directions</li>
+          <li>{{shopDetails.address}}</li>
+          
         </ul>
       </div>
 
@@ -19,7 +19,7 @@
         >
           <div class="row-span-2 col-span-2 rounded-lg">
             <img
-              src="../../../assets/shop.jpg"
+              [src]="shopDetails.images[0]"
               alt="Image 1"
               class="rounded-lg h-full w-full"
             />
@@ -27,7 +27,7 @@
 
           <div class="row-span-1 col-span-1 rounded-lg">
             <img
-              src="../../../assets/shop-2.jpeg"
+              [src]="shopDetails.images[1]"
               alt="Image 2"
               class="rounded-lg h-full w-full"
             />
@@ -35,7 +35,7 @@
 
           <div class="col-span-1 row-span-1">
             <img
-              src="../../../assets/shop-3.jpeg"
+              [src]="shopDetails.images[2]"
               alt="Image 3"
               class="rounded-lg h-full w-full"
             />
@@ -47,20 +47,9 @@
         <div class="w-2/3 p-2 overflow-hidden">
           <!-- <app-all-services></app-all-services> -->
           <h1 class="font-bold font text-4xl py-4">About</h1>
-          <div class="flex items-center mb-4">
-            <img
-              src="../../../assets/shop-2.jpeg"
-              alt="Shop Image"
-              class="w-16 h-16 mr-4 rounded-lg"
-            />
-            <div>
-              <p class="font-bold">Shop Name: Example Shop</p>
-              <p>4.5 ★★★★★★ (125 reviews)</p>
-              <p>Shop Address: 123 Main Street, City, Country</p>
-            </div>
-          </div>
+
           <div class="about mb-6">
-            <p class="text-justify">
+            <p class="text-justify">{{shopDetails.about}}
               Decadence Hair & Beauty is an exclusive boutique salon in the
               heart of Bloomsbury providing a warm, welcoming and pampering
               retreat from the noise of the city. We have the most experienced
@@ -70,7 +59,7 @@
               moment you walk through the door.
             </p>
           </div>
-          <div class="h-64 w-full"><app-map></app-map></div>
+          <div class="h-64 w-full"><app-map [location]="[shopDetails.longitude,shopDetails.latitude]"></app-map></div>
         </div>
         <div class="w-1/3 p-2">
           <h1 class="font-bold font text-4xl py-4">All services</h1>
