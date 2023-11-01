@@ -10,6 +10,8 @@ export class AllServicesComponent {
   serviceName: string = 'Hair cut';
 
   @Output() setService = new EventEmitter<string>();
+
+  
   toggleIcon() {
     this.selected = !this.selected;
     this.setService.emit(this.serviceName);

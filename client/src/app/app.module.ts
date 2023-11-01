@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { UserService } from './services/user.service';
 import { DateTimeComponent } from './components/date-time/date-time.component';
+import { TeamSelectComponent } from './components/team-select/team-select.component';
 
 
 
@@ -48,6 +49,7 @@ import { DateTimeComponent } from './components/date-time/date-time.component';
     ConfirmationComponent,
     UserProfileComponent,
     DateTimeComponent,
+    TeamSelectComponent,
   ],
   imports: [
     BrowserModule,

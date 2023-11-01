@@ -21,14 +21,12 @@ export class BookingComponent {
     console.log('service add', val);
   }
   onClickContinue() {
-    if (this.flag == 1) {
-      this.flag = 2;
-    }
-    else {
+    this.flag++;
+    if (this.flag>3) {
       this.router.navigate(['/confirm']);
     }
   }
   onClickBack() {
-    this.flag = 1;
+    this.flag--;
   }
 }

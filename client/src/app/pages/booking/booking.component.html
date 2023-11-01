@@ -3,14 +3,27 @@
   <div class="w-1/2">
     <app-all-services *ngIf="flag == 1" (setService)="setService($event)"
     ></app-all-services>
-    <div class="" *ngIf="flag == 2">
+<!-- team selection -->
+<div class="" *ngIf="flag == 2">
       <button class="p-2 font-bold rounded-lg hover:bg-slate-400"
       (click)="onClickBack()"
       >
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
         <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
         </svg>
-    </button>
+      </button>
+      <app-team-select></app-team-select>
+    </div>
+      
+<!-- time and date -->
+    <div class="" *ngIf="flag == 3">
+      <button class="p-2 font-bold rounded-lg hover:bg-slate-400"
+      (click)="onClickBack()"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+        </svg>
+      </button>
       <app-date-time ></app-date-time>
     </div>
     
