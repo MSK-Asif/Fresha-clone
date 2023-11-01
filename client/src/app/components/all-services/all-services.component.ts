@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-all-services',
@@ -6,19 +6,28 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./all-services.component.css'],
 })
 export class AllServicesComponent {
-  selected: boolean = false;
-  serviceName: string = 'Hair cut';
+  selectedId: string[] = [];
 
-  @Output() setService = new EventEmitter<string>();
+  @Input() shopServicesDetail: any;
 
-  
-  toggleIcon() {
-    this.selected = !this.selected;
-    this.setService.emit(this.serviceName);
+  @Output() setService = new EventEmitter<string[]>();
+
+  toggleIcon(service: any) {
+    const id = service.service_id;
+    if (this.selectedId.includes(id)) {
+      this.selectedId = this.selectedId.filter((item) => item !== id);
+    } else {
+      this.selectedId.push(id);
+    }
+    this.setService.emit(this.selectedId);
+    console.log('all==', this.shopServicesDetail);
   }
 
-  callService(val: string) {
-    this.setService.emit(val);
-    
+  // callService(val: string) {
+  //   this.setService.emit(val);
+  // }
+
+  getSelected(id: string): boolean {
+    return this.selectedId.includes(id);
   }
 }

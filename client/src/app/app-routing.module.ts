@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'search', component: SearchResultComponent },
   { path: 'select/:id', component: ShopSelectedComponent },
-  { path: 'book', component: BookingComponent },
+  { path: 'book/:id', component: BookingComponent },
   { path: 'confirm', component: ConfirmationComponent },
   {
     path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard],

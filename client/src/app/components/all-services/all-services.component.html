@@ -2,23 +2,21 @@
 <div class=" ">
   <h1 class="font-bold text-3xl py-4">Select Services</h1>
   <div class="m-0">
-    <div
-      class="mb-4 bg-white hover:bg-slate-200 rounded-lg border border-slate-300 hover:border-slate-700 py-2 px-4"
-    >
+    <div *ngFor="let service of shopServicesDetail" class="mb-4 bg-white hover:bg-slate-200 rounded-lg border border-slate-300 hover:border-slate-700 py-2 px-4">
       <div class="flex items-center mb-4">
         <div class="flex-1">
-          <h2 class="text-xl font-semibold">{{serviceName}}</h2>
-          <p class="">Time: 1 Hour</p>
-          <p class="">Price: $50</p>
+          <h2 class="text-xl font-semibold">{{service.service_name}}</h2>
+          <p class="">{{service.duration}}</p>
+          <p class="">Price: ${{service.price}}</p>
         </div>
         <!-- + button -->
         <button
           class="bg-slate-400 p-2 rounded-lg hover:bg-slate-500"
-          (click)="toggleIcon()"
+          (click)="toggleIcon(service)"
         >
           <svg
             class="h-4 w-4 text-slate-950 mr-1"
-            *ngIf="!selected"
+            *ngIf="!getSelected(service.service_id)"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -32,7 +30,7 @@
           </svg>
           <svg
             class="h-4 w-4 text-white mr-1"
-            *ngIf="selected"
+            *ngIf="getSelected(service.service_id)"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

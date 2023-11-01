@@ -1,23 +1,4 @@
-<!-- <div class="max-w-xl mx-auto bg-white rounded-lg border border-gray-300 p-4">
-  <div class="mb-4">
 
-    <div class="flex items-center mb-4">
-      <img src="../../../assets/shop-3.jpeg" alt="Shop Image" class="w-16 h-16 mr-4 rounded-lg">
-      <div>
-        <p class="font-bold">Shop Name: Example Shop</p>
-        <p >4.5 ★★★★★★ (125 reviews)</p>
-        <p>Shop Address: 123 Main Street, City, Country</p>
-      </div>
-    </div>
-  </div>
-  <h1 class="font-bold text-xl">Overview</h1>
-  <ul>
-    <li *ngFor="let item of cartItems" class="mb-2 py-1">
-      {{ item.name }} - ${{ item.price }}
-    </li>
-  </ul>
-  <p class="font-semibold">Total: ${{ calculateTotal() }}</p>
-</div> -->
 
 <div class=" bg-white rounded-lg border border-gray-300 p-4">
   <div class="mb-4">
@@ -36,12 +17,14 @@
   </div>
   <h1 class="font-bold text-xl">Overview</h1>
   <ul>
-    <li *ngIf="service"  class="mb-2 py-1 flex justify-between">
-      <div class="flex items-center">
-        <p>{{ service }}</p>
+    <li >
+      <div *ngFor="let serviceId of serviceIds"  class="mb-2 py-1 flex justify-between">
+        <div class="flex items-center">
+        <p>{{ serviceId }}</p>
       </div>
       <div class="flex items-center">
         <p class="text-right">$ {{ 15}}</p>
+      </div>
       </div>
     </li>
     <!-- <li *ngFor="let item of cartItems" class="mb-2 py-1 flex justify-between">
