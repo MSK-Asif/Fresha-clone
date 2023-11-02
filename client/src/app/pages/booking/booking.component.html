@@ -2,7 +2,6 @@
 <div class="serviceAndBook flex max-w-screen-xl mx-auto gap-4 sm:gap-10">
   <div class="w-1/2">
     <app-all-services
-
       *ngIf="flag == 1"
       (setService)="setService($event)"
       [shopServicesDetail]="shopServicesDetail"
@@ -28,7 +27,9 @@
           />
         </svg>
       </button>
-      <app-team-select></app-team-select>
+      <app-team-select [teamMembers]="teamMemberNames"
+      (teamName)="getTeamName($event)"
+      ></app-team-select>
     </div>
 
     <!-- time and date -->
@@ -52,11 +53,13 @@
           />
         </svg>
       </button>
-      <app-date-time></app-date-time>
+      <app-date-time 
+      (getSelectedTimeDate)="getSelectedTimeDate($event)"
+      [nameAndDetail]="[selectedTeamName, shopDetails]"></app-date-time>
     </div>
   </div>
   <div class="w-1/2">
-    <app-selected-services [serviceIds]="serviceId"> </app-selected-services>
+    <app-selected-services [selections]="{shopDetails, selectedServiceInfo,selectedTeamName,selectedTimeDate}"> </app-selected-services>
     <div class="mx-auto mt-2">
       <button
         (click)="onClickContinue()"

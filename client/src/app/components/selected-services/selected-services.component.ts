@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChange } from '@angular/core';
 
 @Component({
   selector: 'app-selected-services',
@@ -6,21 +6,56 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./selected-services.component.css'],
 })
 export class SelectedServicesComponent {
-  // cartItems: CartItem[] = [
-  //   { name: 'Item 1', price: 10, image: 'item1.jpg' },
-  //   { name: 'Item 2', price: 20, image: 'item2.jpg' },
-  //   { name: 'Item 3', price: 15, image: 'item3.jpg' },
-  // ];
+  shopInfo!: any;
+  ServiceInfo: any;
+  teamName!: string;
+  dateTime!: any;
+  totalPrice!: number;
+  inputDate!: string;
+  formattedDate!: string;
 
-  @Input() serviceIds!: string[];
+  @Input() selections: any;
 
-  calculateTotal(): number {
-    return 0; //this.cartItems.reduce((total, item) => total + item.price, 0);
+  ngOnInit(): void {
+    this.shopInfo = this.selections.shopDetails;
+    console.log('logform', this.selections.shopDetails);
   }
-}
 
-interface CartItem {
-  name: string;
-  price: number;
-  image: string;
+  ngOnChanges(change: SimpleChange) {
+    // console.log(this.selections.selectedServiceInfo);
+    // this.shopInfo = this.selections.shopDetails;
+    this.ServiceInfo = this.selections.selectedServiceInfo; //[{id..}{id.}]
+    this.teamName = this.selections.selectedTeamName;
+    this.dateTime = this.selections.selectedTimeDate;
+    console.log('hi', this.dateTime);
+    console.log('logform', this.ServiceInfo);
+    this.calculateTotal();
+   // if (this.dateTime.date) {
+      this.inputDate = this.dateTime?.date;
+      if (this.inputDate) {
+        this.formattedDate = this.formatDate(this.inputDate);
+      }
+  //  }
+    
+  }
+  calculateTotal() {
+    if (this.ServiceInfo) {
+      let total = 0;
+      for (let i = 0; i < this.ServiceInfo.length; i++) {
+        total += this.ServiceInfo[i].price;
+      }
+      this.totalPrice = total;
+    }
+  }
+  formatDate(inputDate: string): string {
+  const date = new Date(inputDate);
+  const options: Intl.DateTimeFormatOptions = {
+    weekday: 'long',
+    month: 'long',
+    day: '2-digit',
+  };
+  return date.toLocaleDateString('en-US', options);
 }
+}
+  
+  

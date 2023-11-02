@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-team-select',
@@ -6,7 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./team-select.component.css'],
 })
 export class TeamSelectComponent {
-  selectMember() {
-    console.log('selectMember' );
+  @Input() teamMembers: any;
+  @Output() teamName = new EventEmitter<string>();
+
+  selectMember(val: number) {
+    console.log('teamSelect', this.teamMembers[val]);
+    if (val === -1) {
+      this.sendSelectedTeamName('any');
+    }
+    else {
+      this.sendSelectedTeamName(this.teamMembers[val]);
+    }
+    
+    
+  }
+
+  sendSelectedTeamName(val: string) {
+    console.log(val);
+    this.teamName.emit(val);
   }
 }

@@ -20,12 +20,8 @@ export class AllServicesComponent {
       this.selectedId.push(id);
     }
     this.setService.emit(this.selectedId);
-    console.log('all==', this.shopServicesDetail);
+    // console.log('all==', this.selectedId);
   }
-
-  // callService(val: string) {
-  //   this.setService.emit(val);
-  // }
 
   getSelected(id: string): boolean {
     return this.selectedId.includes(id);

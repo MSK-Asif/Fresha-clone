@@ -4,26 +4,26 @@
   <div class="mb-4">
     <div class="flex items-center mb-4">
       <img
-        src="../../../assets/shop-2.jpeg"
-        alt="Shop Image"
+        [src]="selections.shopDetails.images?.[0]"
+        alt="No images"
         class="w-16 h-16 mr-4 rounded-lg"
       />
       <div>
-        <p class="font-bold">Shop Name: Example Shop</p>
-        <p>4.5 ★★★★★★ (125 reviews)</p>
-        <p>Shop Address: 123 Main Street, City, Country</p>
+        <p class="font-bold">{{selections.shopDetails.shop_name}}</p>
+        <p>{{selections.shopDetails.ratings}} ★★★★★★ (3 reviews)</p>
+        <p>{{selections.shopDetails.address}}</p>
       </div>
     </div>
   </div>
   <h1 class="font-bold text-xl">Overview</h1>
   <ul>
     <li >
-      <div *ngFor="let serviceId of serviceIds"  class="mb-2 py-1 flex justify-between">
+      <div *ngFor="let service of ServiceInfo"  class="mb-2 py-1 flex justify-between">
         <div class="flex items-center">
-        <p>{{ serviceId }}</p>
+        <p>{{ service.service_name }}</p>
       </div>
       <div class="flex items-center">
-        <p class="text-right">$ {{ 15}}</p>
+        <p class="text-right">$ {{service.price}}</p>
       </div>
       </div>
     </li>
@@ -39,15 +39,15 @@
   <hr class="my-4 border-gray-400" />
   <div class="flex justify-between mt-4">
     <p class="font-semibold">Total:</p>
-    <p class="font-semibold">$ {{ calculateTotal() }}</p>
+    <p class="font-semibold">$ {{ totalPrice }}</p>
   </div>
 
   <div class="py-4">
-    <h1 class="font-bold text-xl">Appointment</h1>
-    <!-- <h1 class="font-bold text-xl">{{str}}</h1> -->
+    <h1 class="font-bold text-xl mb-4">Appointment</h1>
+    <h1 class="font-semibold text-xl">{{teamName}}</h1>
     
-    <p>Thursday 26 October</p>
-    <p>10:30-10:35am</p>
+    <p>{{formattedDate}}</p>
+    <p>{{dateTime?.time}}</p>
   </div>
 
   

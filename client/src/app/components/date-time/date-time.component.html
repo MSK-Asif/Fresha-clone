@@ -8,20 +8,15 @@
         type="date"
         id="date"
         name="selectedDate"
-        [(ngModel)]="selectedDateTime.selectedDate"
+        [(ngModel)]="selectedDate"
+        (input)="logSelectedDate()"
         class="block p-2 rounded-lg bg-slate-200 hover:bg-slate-300 w-full h-12"
       />
     </div>
     <div class="flex-auto overflow-hidden">
-      <label for="time" class="font-bold">Select Time</label>
-      <input
-        type="time"
-        id="time"
-        name="selectedTime"
-        [(ngModel)]="selectedDateTime.selectedTime"
-        class="block p-2 rounded-lg bg-slate-200 hover:bg-slate-300 w-full h-12"
-        (ngModelChange)="logSelectedDateTime()"
-      />
+      <h1 class="font-bold">Select Time</h1>
+      <p *ngFor="let time of allTimes" (click)="timeClick(time)" class="mb-4 text-center font-bold align-middle block p-2 rounded-lg bg-slate-200 hover:bg-slate-300 w-full h-12">{{time}}</p>
+      
     </div>
   </div>
 </form>
