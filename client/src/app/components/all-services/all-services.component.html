@@ -2,32 +2,19 @@
 <div class=" ">
   <h1 class="font-bold text-3xl py-4">Select Services</h1>
   <div class="m-0">
-    <div *ngFor="let service of shopServicesDetail" class="mb-4 bg-white hover:bg-slate-200 rounded-lg border border-slate-300 hover:border-slate-700 py-2 px-4">
-      <div class="flex items-center mb-4">
+    <div *ngFor="let service of shopServicesDetail" class="mb-4 bg-white hover:bg-slate-200 rounded-lg border border-slate-300 hover:border-slate-700 overflow-hidden">
+      <!-- select -->
+      <div *ngIf="getSelected(service.service_id)" class="flex border border-slate-700 rounded-lg items-center py-2 px-4">
         <div class="flex-1">
           <h2 class="text-xl font-semibold">{{service.service_name}}</h2>
           <p class="">{{service.duration}}</p>
-          <p class="">Price: ${{service.price}}</p>
+          <p class="font-semibold">${{service.price}}</p>
         </div>
         <!-- + button -->
         <button
-          class="bg-slate-400 p-2 rounded-lg hover:bg-slate-500"
+          class="bg-slate-800 p-2 rounded-lg hover:bg-slate-500"
           (click)="toggleIcon(service)"
         >
-          <svg
-            class="h-4 w-4 text-slate-950 mr-1"
-            *ngIf="!getSelected(service.service_id)"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-            ></path>
-          </svg>
           <svg
             class="h-4 w-4 text-white mr-1"
             *ngIf="getSelected(service.service_id)"
@@ -40,6 +27,33 @@
               stroke-linejoin="round"
               stroke-width="2"
               d="M5 13l4 4L19 7"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <!-- not selected -->
+      <div *ngIf="!getSelected(service.service_id)" class="flex items-center py-2 px-4">
+        <div class="flex-1">
+          <h2 class="text-xl font-semibold">{{service.service_name}}</h2>
+          <p class="">{{service.duration}}</p>
+          <p class="font-semibold">${{service.price}}</p>
+        </div>
+        <!-- + button -->
+        <button
+          class="bg-slate-400 p-2 rounded-lg hover:bg-slate-500"
+          (click)="toggleIcon(service)"
+        >
+          <svg
+            class="h-4 w-4 text-slate-950 mr-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 6v6m0 0v6m0-6h6m-6 0H6"
             ></path>
           </svg>
         </button>

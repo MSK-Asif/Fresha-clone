@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  
+  isHeaderFixed = false;
+
+  @HostListener('window:scroll', [])
+  onScroll(): void {
+    this.isHeaderFixed = window.scrollY > 0;
+  }
 }

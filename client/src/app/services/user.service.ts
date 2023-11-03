@@ -12,7 +12,7 @@ export class UserService {
 
   createUserData(userData: any) {
     // console.log('service2:', userData); //user data is body
-    return this.http.post(this.apiRegUrl, userData, { withCredentials: true }); //user golea backend e patacci
+    return this.http.post(this.apiRegUrl, userData, { withCredentials: true }); //user gola backend e patacci
   }
   checkLoginData(userLoginData: any) {
     return this.http.post(this.apiLoginUrl, userLoginData, {

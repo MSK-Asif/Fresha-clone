@@ -8,13 +8,16 @@ import { ShopDataService } from 'src/app/services/shop-data.service';
 })
 export class RecommendedComponent {
   public data: any[] | undefined;
+  public currentIndex = 0;
 
   constructor(private dataService: ShopDataService) {}
 
   ngOnInit() {
     this.dataService.getAllShopData().subscribe((response) => {
-      this.data = response;//all shop data
+      this.data = response; // All shop data
       console.log(this.data);
     });
   }
+
+  
 }

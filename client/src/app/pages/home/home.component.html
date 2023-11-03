@@ -1,13 +1,23 @@
 <div class="bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-200">
-  <div class="">
-    <app-header></app-header>
+ 
+    <div
+      class="fixed top-0 w-full z-10"
+      id="header"
+      [ngClass]="{
+        'bg-white': isHeaderFixed,
+        'bg-transparent': !isHeaderFixed
+      }"
+    >
+      <app-header></app-header>
+    </div>
+
     <!-- ================Body================ -->
-    <div class="max-w-screen-xl mx-auto">
+    <div class="max-w-screen-xl mx-auto pt-24">
       <div class="flex flex-col justify-center text-center max-w-5xl m-auto">
         <h1
           class="font-bold text-5xl text-start md:text-7xl lg:text-7xl xl:text-7xl mb-20 mt-10"
         >
-          Book local beauty and wellness services 
+          Book local beauty and wellness services
         </h1>
         <div class=""><app-search></app-search></div>
       </div>
@@ -27,7 +37,7 @@
         </p>
         <h1 class="font-bold text-7xl pt-8">700 million+</h1>
         <p>Appointments booked on Fresha</p>
-        <div class="flex  justify-around p-8">
+        <div class="flex justify-around p-8">
           <div class="">
             <h1 class="font-bold text-2xl">120+ countries</h1>
             <p>using Fresha</p>
@@ -44,5 +54,5 @@
       </div>
     </div>
     <app-footer></app-footer>
-  </div>
+  
 </div>

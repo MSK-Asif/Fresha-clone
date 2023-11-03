@@ -12,10 +12,14 @@ export class SearchComponent {
   selectedTreatment: string = '';
 
   treatmentOptions: string[] = [
-    'Service 1',
-    'Service 2',
-    'Service 3',
-    // Add more treatment options as needed
+    'Haircut',
+    'Coloring',
+    'Hairstyle',
+    'Treatments',
+    'Facials',
+    'Manicure',
+    'Waxing',
+    'Massage',
   ];
   cities: string[] = [
     'New York',
@@ -46,5 +50,18 @@ export class SearchComponent {
   selectCity(city: string) {
     this.location = city;
     this.citySuggestions = [];
+  }
+
+  searchText: string = '';
+  mapArea: string = '';
+  selectedDate: string = '';
+  selectedTime: string = '';
+
+  performSearch() {
+    // Implement your search logic here
+    console.log('Search Text:', this.searchText);
+    console.log('Map Area:', this.mapArea);
+    console.log('Date:', this.selectedDate);
+    console.log('Time:', this.selectedTime);
   }
 }

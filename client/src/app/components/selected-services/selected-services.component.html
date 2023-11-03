@@ -19,10 +19,10 @@
   <ul>
     <li >
       <div *ngFor="let service of ServiceInfo"  class="mb-2 py-1 flex justify-between">
-        <div class="flex items-center">
+        <div class="flex items-center font-medium text-slate-500">
         <p>{{ service.service_name }}</p>
       </div>
-      <div class="flex items-center">
+      <div class="flex items-center font-medium text-slate-500">
         <p class="text-right">$ {{service.price}}</p>
       </div>
       </div>
@@ -38,8 +38,8 @@
   </ul>
   <hr class="my-4 border-gray-400" />
   <div class="flex justify-between mt-4">
-    <p class="font-semibold">Total:</p>
-    <p class="font-semibold">$ {{ totalPrice }}</p>
+    <p class="font-bold">Total:</p>
+    <p class="font-bold">$ {{ totalPrice }}</p>
   </div>
 
   <div class="py-4">
