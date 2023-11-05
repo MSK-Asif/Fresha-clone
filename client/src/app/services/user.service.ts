@@ -20,9 +20,6 @@ export class UserService {
     });
   }
 
-  // getProfileData() {
-  //   return this.http.get(this.apiProfileUrl, { withCredentials: true });
-  // }
   isAuthenticatedFlag: boolean = false;
   async getProfileData() {
     try {

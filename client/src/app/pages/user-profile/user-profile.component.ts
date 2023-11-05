@@ -21,6 +21,5 @@ export class UserProfileComponent {
     //   this.userData.email = user.email;
     // });
     const user = this.userService.getProfileData();
-    console.log('profile==>>',user);
   }
 }

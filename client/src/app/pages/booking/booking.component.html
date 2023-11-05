@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="serviceAndBook flex max-w-screen-xl mx-auto gap-4 sm:gap-10">
-  <div class="w-4/5 flex mx-auto space-x-24 ">
+  <div class="w-4/5 flex mx-auto space-x-24">
     <div class="w-3/5">
       <app-all-services
         *ngIf="flag == 1"
@@ -63,13 +63,16 @@
     </div>
     <div class="w-2/5">
       <app-selected-services
+        (totalAmmount)="getTotalAmmount($event)"
         [selections]="{shopDetails, selectedServiceInfo,selectedTeamName,selectedTimeDate}"
       >
       </app-selected-services>
       <div class="mx-auto mt-2">
         <button
+          [disabled]="isButtonDisabled "
           (click)="onClickContinue()"
-          class="bg-slate-950 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+          [ngClass]="{'bg-slate-500': isButtonDisabled, 'bg-slate-950': !isButtonDisabled}"
+          class=" text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
           type="button"
         >
           Continue

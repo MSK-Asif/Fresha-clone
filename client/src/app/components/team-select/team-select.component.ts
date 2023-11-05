@@ -10,19 +10,15 @@ export class TeamSelectComponent {
   @Output() teamName = new EventEmitter<string>();
 
   selectMember(val: number) {
-    console.log('teamSelect', this.teamMembers[val]);
     if (val === -1) {
       this.sendSelectedTeamName('any');
     }
     else {
       this.sendSelectedTeamName(this.teamMembers[val]);
     }
-    
-    
   }
 
   sendSelectedTeamName(val: string) {
-    console.log(val);
     this.teamName.emit(val);
   }
 }

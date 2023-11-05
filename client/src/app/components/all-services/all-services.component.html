@@ -4,7 +4,7 @@
   <div class="m-0">
     <div *ngFor="let service of shopServicesDetail" class="mb-4 bg-white hover:bg-slate-200 rounded-lg border border-slate-300 hover:border-slate-700 overflow-hidden">
       <!-- select -->
-      <div *ngIf="getSelected(service.service_id)" class="flex border border-slate-700 rounded-lg items-center py-2 px-4">
+      <div *ngIf="checkSelected(service.service_id)" class="flex border border-slate-700 rounded-lg items-center py-2 px-4">
         <div class="flex-1">
           <h2 class="text-xl font-semibold">{{service.service_name}}</h2>
           <p class="">{{service.duration}}</p>
@@ -17,7 +17,6 @@
         >
           <svg
             class="h-4 w-4 text-white mr-1"
-            *ngIf="getSelected(service.service_id)"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -32,7 +31,7 @@
         </button>
       </div>
       <!-- not selected -->
-      <div *ngIf="!getSelected(service.service_id)" class="flex items-center py-2 px-4">
+      <div *ngIf="!checkSelected(service.service_id)" class="flex items-center py-2 px-4">
         <div class="flex-1">
           <h2 class="text-xl font-semibold">{{service.service_name}}</h2>
           <p class="">{{service.duration}}</p>

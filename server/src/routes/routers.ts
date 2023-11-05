@@ -2,6 +2,7 @@ import { Router, Request, Response, NextFunction } from "express";
 import { userLogin, userRegistration } from "../controllers/user.controller";
 import { profileInfo } from "../controllers/profile.controller";
 import { allShopInfo, shopInfo } from "../controllers/shop.controller";
+import { createBooking} from "../controllers/booking.controller";
 
 const router = Router();
 
@@ -22,20 +23,13 @@ router.get("/shop-data", allShopInfo);//All shop data
 
 router.get("/select/:id", shopInfo);//single shop details
 
+router.post("/serviceBooking", createBooking);//book service
+
+
 //search
 router.get("/search", (req: Request, res: Response) => {
   res.send("Search page");
-}) 
-
-
-router.get("/shop-details", (req: Request, res: Response) => {
-    
-})
-
-//shop cart
-router.post("/shop-cart", (req: Request, res: Response) => {
-    
-})
+}); 
 
 //confirmation
 router.post("/confirmation", (req: Request, res: Response) => {

@@ -25,6 +25,8 @@ import { RouterModule } from '@angular/router';
 import { UserService } from './services/user.service';
 import { DateTimeComponent } from './components/date-time/date-time.component';
 import { TeamSelectComponent } from './components/team-select/team-select.component';
+import { BookingService } from './services/booking.service';
+import { CancellationPolicyComponent } from './components/cancellation-policy/cancellation-policy.component';
 
 
 
@@ -50,6 +52,7 @@ import { TeamSelectComponent } from './components/team-select/team-select.compon
     UserProfileComponent,
     DateTimeComponent,
     TeamSelectComponent,
+    CancellationPolicyComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,7 @@ import { TeamSelectComponent } from './components/team-select/team-select.compon
     FormsModule,
     HttpClientModule,
   ],
-  providers: [UserService],
+  providers: [UserService, BookingService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

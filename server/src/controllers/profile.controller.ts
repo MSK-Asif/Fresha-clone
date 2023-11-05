@@ -9,7 +9,7 @@ const secretKey = `${process.env.SECRET_KEY}`;
 
 export const profileInfo = async (req: Request, res: Response) => {
   //try {
-  console.log(req.cookies["auth-token"]); //front end token
+  // console.log(req.cookies["auth-token"]); //front end token
 
   const token = req.cookies["auth-token"]; // Assuming the token is stored in a cookie
 
@@ -18,11 +18,11 @@ export const profileInfo = async (req: Request, res: Response) => {
   }
 
   const decodedToken = jwt.verify(token, secretKey) as IUser;//{id:kk, email:,kk}
-    console.log('dt==>', decodedToken);
-    console.log(decodedToken.id, decodedToken.email);
+    // console.log('dt==>', decodedToken);
+    // console.log(decodedToken.id, decodedToken.email);
     const email = decodedToken.email;
     const user = await UserModel.findOne({ email }).exec();//find the user from db   
-    console.log(user);
+    // console.log(user);
     
   return res.json({user });
   //     const userId: string = req.user?.id; // Now TypeScript recognizes 'user'

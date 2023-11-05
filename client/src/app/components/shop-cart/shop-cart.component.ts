@@ -6,5 +6,10 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./shop-cart.component.css']
 })
 export class ShopCartComponent {
-@Input() shopCart:any
+  @Input() shopCart: any
+
+  //   saveDataToLocalStorage() {
+  //   localStorage.setItem('shopCartData', this.shopCart);
+  // }
+  
 }

@@ -36,8 +36,6 @@ export class DateTimeComponent {
     this.shop = this.nameAndDetail[1];
     // this.allTimes = this.shop.times;
     this.allDateBookedTimes = this.shop.booked[this.teamName];
-    console.log(this.allTimes);
-    console.log('cng', this.allDateBookedTimes);
     this.logSelectedDate();
   }
 
@@ -50,21 +48,17 @@ export class DateTimeComponent {
 
   logSelectedDate() {
     console.log('Selected Date:', this.selectedDate);
-
     if (
       this.teamName !== 'any' &&
       this.selectedDate &&
       this.allDateBookedTimes &&
       this.selectedDate in this.allDateBookedTimes
     ) {
-      console.log('yes');
       this.availableTimes = this.allTimes.filter(
         (time) => !this.allDateBookedTimes[this.selectedDate].includes(time)
       );
-      console.log('avl=', this.availableTimes);
       this.allTimes = this.availableTimes;
     } else {
-      console.log('no');
       this.allTimes = this.initTimes;
     }
     this.getSelectedTimeDate.emit({
@@ -78,6 +72,5 @@ export class DateTimeComponent {
       time: this.selectedTime,
       date: this.selectedDate,
     });
-    // console.log('emit', { time: selectedTime, date: this.selectedDate });
   }
 }

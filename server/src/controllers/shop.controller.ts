@@ -26,7 +26,7 @@ export const shopInfo = async (req: Request, res: Response) => {
       // console.log(shop);
       // console.log(shopServices);
         if (shopServices) {
-          console.log({ shop, shopServices });
+          // console.log({ shop, shopServices });
           res.json({ shop, shopServices });
     } else {
       res.status(404).json({ error: "Shop not found" });

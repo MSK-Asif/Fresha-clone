@@ -15,7 +15,7 @@ export class RecommendedComponent {
   ngOnInit() {
     this.dataService.getAllShopData().subscribe((response) => {
       this.data = response; // All shop data
-      console.log(this.data);
+      // console.log(this.data);
     });
   }
 

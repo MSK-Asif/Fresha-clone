@@ -19,9 +19,7 @@ const routes: Routes = [
   { path: 'select/:id', component: ShopSelectedComponent },
   { path: 'book/:id', component: BookingComponent },
   { path: 'confirm', component: ConfirmationComponent },
-  {
-    path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard],
-  },
+  { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({
