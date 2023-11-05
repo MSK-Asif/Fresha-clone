@@ -1,8 +1,8 @@
-<div routerLink="/select/{{shopCart.shop_id}}"  class="border  border-slate-400 rounded-lg overflow-hidden mb-4 w-80 h-80 hover:opacity-90">
+<div routerLink="/select/{{shopCart.shop_id}}"  class="border  border-slate-400 rounded-lg overflow-hidden mb-4 max-w-80 h-80 z-10 hover:opacity-70">
   <img [src]="shopCart.images[0]" alt="Product Image" class="w-full h-48 mx-auto mb-4">
   <div class="px-4">
     <h2 class="text-lg font-bold">{{shopCart.shop_name}}</h2>
-    <p class="text-gray-600 text-sm font-semibold mb-2">{{shopCart.ratings}}</p>
+    <p class="text-gray-600 text-sm font-semibold mb-2">{{shopCart.ratings}} ★★★★</p>
     <p class="text-gray-600 text-sm mb-2">{{shopCart.address}}</p>
     <p class="text-gray-600 text-sm border rounded border-slate-400 w-fit px-1">{{shopCart.category}}</p>
   </div>

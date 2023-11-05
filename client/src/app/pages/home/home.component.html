@@ -1,7 +1,7 @@
 <div class="bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-200">
  
     <div
-      class="fixed top-0 w-full z-10"
+      class="fixed top-0 w-full z-40"
       id="header"
       [ngClass]="{
         'bg-white': isHeaderFixed,
@@ -26,7 +26,8 @@
       <h3 class="text-center text-2xl font-semibold p-8 mb-14">
         <span class="font-bold text-3xl">76,694</span> appointments booked today
       </h3>
-      <app-recommended></app-recommended>
+      <div class=" w-auto"><app-recommended cla></app-recommended></div>
+      
       <div class="mx-auto text-center py-8 w-fit">
         <h1 class="font-bold text-4xl">
           The top-rated destination for beauty and wellness
