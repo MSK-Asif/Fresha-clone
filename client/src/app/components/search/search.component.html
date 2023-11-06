@@ -57,7 +57,7 @@
       <a href="#" (click)="selectCity(city)">{{ city }}</a>
     </li>
   </ul>
-</div> -->
+</div>  -->
 
 <!-- <div class="flex">
   <div class="flex-1">
@@ -109,7 +109,9 @@
     </button>
   </div>
 </div>
+ 
  -->
+
 <div class="flex m-0 border-2  border-slate-300 rounded-full bg-white p-3 overflow-hidden ">
   <div class="flex-1 relative">
     <input
@@ -136,7 +138,7 @@
       type="date"
       id="datePicker"
       class="w-full px-4 py-2 h-10 border-r border-l border-t-0 rounded-none focus:outline-none"
-      [(ngModel)]="selectedDate"
+      
       placeholder="Date"
     >
   </div>
@@ -146,7 +148,7 @@
       type="time"
       id="timePicker"
       class="w-full px-4 py-2 h-10 border-r-0 border-l-0 border-t-0  rounded-none focus:outline-none"
-      [(ngModel)]="selectedTime"
+      
       placeholder="Time"
     >
   </div>
@@ -155,6 +157,7 @@
     <button
       class="bg-slate-900 text-white hover:bg-slate-600 rounded-full w-24 h-10"
       (click)="performSearch()"
+      
     >
       Search
     </button>

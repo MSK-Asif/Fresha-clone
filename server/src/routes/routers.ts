@@ -3,6 +3,7 @@ import { userLogin, userRegistration } from "../controllers/user.controller";
 import { profileInfo } from "../controllers/profile.controller";
 import { allShopInfo, shopInfo } from "../controllers/shop.controller";
 import { createBooking} from "../controllers/booking.controller";
+import { findShops } from "../controllers/search.controller";
 
 const router = Router();
 
@@ -27,9 +28,7 @@ router.post("/serviceBooking", createBooking);//book service
 
 
 //search
-router.get("/search", (req: Request, res: Response) => {
-  res.send("Search page");
-}); 
+router.get("/search", findShops); 
 
 //confirmation
 router.post("/confirmation", (req: Request, res: Response) => {

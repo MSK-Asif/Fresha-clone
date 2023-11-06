@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 export class ShopCartComponent {
   @Input() shopCart!: any;
 
+  // console.log(shopCart);
   //   saveDataToLocalStorage() {
   //   localStorage.setItem('shopCartData', this.shopCart);
   // }

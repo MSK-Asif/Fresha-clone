@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class ShopDataService {
   private apiAllShopDataUrl = 'http://localhost:5000/shop-data';
   private apiShopDataUrl = 'http://localhost:5000/select/';
+  private apiSearchDataUrl = 'http://localhost:5000/search/';
 
   constructor(private http: HttpClient) {}
   getAllShopData(): Observable<any[]> {
@@ -15,5 +16,8 @@ export class ShopDataService {
   }
   getShopData(id:string):Observable<any>{
     return this.http.get<any>(`${this.apiShopDataUrl+id}`);
+  }
+  getAllSearchData(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiSearchDataUrl}`);
   }
 }
