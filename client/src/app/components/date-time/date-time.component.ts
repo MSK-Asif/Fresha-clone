@@ -10,7 +10,7 @@ export class DateTimeComponent {
   allDateBookedTimes!: string[];
   availableTimes!: string[];
   shop!: any;
-  selectedDate: any;
+  selectedDate: any='2023-10-14';
   initTimes: string[] = [
     '9:00 AM',
     '9:30 AM',
@@ -27,7 +27,7 @@ export class DateTimeComponent {
     '3:00 PM',
   ];
   allTimes: string[] = this.initTimes;
-  selectedTime!: string;
+  selectedTime: string="10:00 AM";
   @Input() nameAndDetail!: string[];
 
   @Output() getSelectedTimeDate = new EventEmitter<any>();
