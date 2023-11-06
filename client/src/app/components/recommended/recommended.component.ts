@@ -7,7 +7,7 @@ import { ShopDataService } from 'src/app/services/shop-data.service';
   styleUrls: ['./recommended.component.css'],
 })
 export class RecommendedComponent {
-  data!: object[];
+  data: object[]=[];
   currentIndex = 0;
 
   constructor(private dataService: ShopDataService) {}
