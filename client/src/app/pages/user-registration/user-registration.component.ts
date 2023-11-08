@@ -39,6 +39,11 @@ export class UserRegistrationComponent {
       .subscribe((response: any) => {
         console.log('Event created:', response);
         this.responseMessage = response.message;
+        console.log(this.responseMessage, '-=-=');
+         if (this.responseMessage === 'User is created successfully') {
+           console.log('login');
+           this.router.navigate(['/login']);
+         }
       });
     this.userData = {
       firstName: '',
@@ -51,10 +56,6 @@ export class UserRegistrationComponent {
     //   duration: 5000, // Time in milliseconds to display the notification (adjust as needed)
     // });
 
-    if (this.responseMessage === 'User is created successfully') {
-      console.log('login');
-
-      this.router.navigate(['/login']);
-    }
+   
   }
 }

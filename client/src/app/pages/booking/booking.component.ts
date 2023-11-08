@@ -15,6 +15,8 @@ export class BookingComponent {
   shopId!: string;
   shopDetails: any = {};
   shopServicesDetail: any;
+  shopName!: string;
+  serviceName!: string;
   // user: Object = {};
 
   constructor(
@@ -30,7 +32,7 @@ export class BookingComponent {
   teamMemberNames: string[] = [];
   selectedTeamName!: string;
   selectedServiceInfo!: any;
-  selectedTimeDate: { time: string;  date: string} = {time: "", date: ""} ;
+  selectedTimeDate: { time: string; date: string } = { time: '', date: '' };
   storedData: any;
   dataToBook: any = {};
   userEmail!: string;
@@ -48,6 +50,8 @@ export class BookingComponent {
     this.shopService.getShopData(this.shopId).subscribe((data: any) => {
       //shop data from backend
       this.shopDetails = data.shop;
+      this.shopName = this.shopDetails.shop_name;
+
       this.shopServicesDetail = data.shopServices;
 
       for (let key in this.shopDetails.booked) {
@@ -83,6 +87,7 @@ export class BookingComponent {
     this.selectedServiceInfo = this.shopServicesDetail.filter((service: any) =>
       ids.includes(service.service_id)
     );
+    console.log(this.selectedServiceInfo,'---=');
   }
 
   getSelectedTimeDate(timeDate: any) {
@@ -137,8 +142,8 @@ export class BookingComponent {
     this.userEmail = userData.user.email;
     this.dataToBook = {
       userEmail: this.userEmail,
-      shopId: this.shopId,
-      serviceId: this.serviceId,
+      shopName: this.shopName,
+      serviceName: this.serviceName,
       teamName: this.selectedTeamName,
       date: this.selectedTimeDate.date,
       time: this.selectedTimeDate.time,

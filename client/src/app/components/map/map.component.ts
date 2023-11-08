@@ -21,7 +21,7 @@ export class MapComponent {
       //  center: [90.42488, 23.76495], // starting position [lng, lat]
        zoom: 13, // starting zoom
      });
-    const marker1 = new mapboxgl.Marker()
+    const marker1 = new mapboxgl.Marker({ color: 'black' })
       .setLngLat(this.location)
       .addTo(map);
   }

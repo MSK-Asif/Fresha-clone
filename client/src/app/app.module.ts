@@ -27,6 +27,11 @@ import { DateTimeComponent } from './components/date-time/date-time.component';
 import { TeamSelectComponent } from './components/team-select/team-select.component';
 import { BookingService } from './services/booking.service';
 import { CancellationPolicyComponent } from './components/cancellation-policy/cancellation-policy.component';
+import { SuccessComponent } from './components/success/success.component';
+import { MapAllComponent } from './components/map-all/map-all.component';
+import { ResourcePlanningComponent } from './business/resource-planning/resource-planning.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 
 
@@ -53,12 +58,16 @@ import { CancellationPolicyComponent } from './components/cancellation-policy/ca
     DateTimeComponent,
     TeamSelectComponent,
     CancellationPolicyComponent,
+    SuccessComponent,
+    MapAllComponent,
+    ResourcePlanningComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
   ],
   providers: [UserService, BookingService],
   bootstrap: [AppComponent],

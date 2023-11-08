@@ -1,0 +1,35 @@
+<div class="flex items-center justify-center text-center h-screen">
+  <div class="p-8 h-2/3 w-1/4 bg-white border border-gray-200 shadow-md rounded-lg transform transition-transform hover:scale-105">
+    <h2 class="text-3xl mt-12 font-bold text-gray-800 text-center">Appointment </h2>
+    <h2 class="text-3xl mt-4 font-bold text-gray-800 text-center">Successful </h2>
+    
+    <button type="button" class="btn mt-8 h-20 w-20 py-6 bg-slate-100 border-slate-800 border-2 text-white rounded-full text-2xl hover:bg-slate-300" 
+    (click)="submitReview()"
+    >✔</button>
+  </div>
+</div>
+
+
+
+
+<!-- <div class="flex items-center justify-center h-screen">
+  <div class="p-8 h-2/3 w-1/4 bg-white border border-gray-200 shadow-md rounded-lg transform transition-transform hover:scale-105">
+    <h2 class="text-7xl font-bold text-gray-800 mb-10 py-20 text-center">Appointment Review</h2>
+    <div class="mb-4py-6">
+      <label for="rating" class="mx-auto  text-6xl font-medium text-gray-700">Rating</label>
+      <div class="flex space-x-2">
+        <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+          <button type="button" class="text-slate-700 text-8xl" (click)="setRating(i + 1)">
+            <ng-container *ngIf="i < appointment.rating">&#9733;</ng-container>
+            <ng-container *ngIf="i >= appointment.rating">&#9734;</ng-container>
+          </button>
+        </ng-container>
+      </div>
+    </div>
+    <div class="mb-4 py-10">
+      <label for="review" class="block text-6xl font-medium text-gray-700 pb-12">Review</label>
+      <textarea id="review" name="review" [(ngModel)]="appointment.review" class="form-textarea  text-6xl w-full h-48 border"></textarea>
+    </div>
+    <button type="button" class="btn py-6 bg-slate-900 text-white rounded-lg w-full text-4xl transform transition-transform hover:scale-105" (click)="submitReview()">Submit</button>
+  </div>
+</div> -->

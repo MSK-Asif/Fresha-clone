@@ -4,6 +4,7 @@ import { profileInfo } from "../controllers/profile.controller";
 import { allShopInfo, shopInfo } from "../controllers/shop.controller";
 import { createBooking} from "../controllers/booking.controller";
 import { findShops } from "../controllers/search.controller";
+import { findUserBooking } from "../controllers/findBooking.controller";
 
 const router = Router();
 
@@ -28,12 +29,11 @@ router.post("/serviceBooking", createBooking);//book service
 
 
 //search
-router.get("/search", findShops); 
+router.get("/search/:id/:location", findShops); 
 
-//confirmation
-router.post("/confirmation", (req: Request, res: Response) => {
-    
-})
+
+
+router.get("/findBooking", findUserBooking)
 
 //route not found middleware
 router.use((err: Error, req: Request, res: Response, next: NextFunction) => {

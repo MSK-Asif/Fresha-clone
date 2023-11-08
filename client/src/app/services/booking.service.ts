@@ -12,4 +12,7 @@ export class BookingService {
     console.log('data', data);
     return this.http.post(this.apiBookServiceUrl, data);
   }
+  getUserBookingInfo() {
+    return this.http.get(this.apiBookServiceUrl);
+  }
 }

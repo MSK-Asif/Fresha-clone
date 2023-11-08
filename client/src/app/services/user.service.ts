@@ -8,6 +8,7 @@ export class UserService {
   private apiRegUrl = 'http://localhost:5000/register';
   private apiLoginUrl = 'http://localhost:5000/login';
   private apiProfileUrl = 'http://localhost:5000/profile';
+  private apiUserBookingUrl = 'http://localhost:5000/findBooking';
   constructor(private http: HttpClient) {}
 
   createUserData(userData: any) {
@@ -23,12 +24,17 @@ export class UserService {
   isAuthenticatedFlag: boolean = false;
   async getProfileData() {
     try {
-      const res = await axios.get(this.apiProfileUrl, { withCredentials: true });
+      const res = await axios.get(this.apiProfileUrl, {
+        withCredentials: true,
+      });
       return res.data;
-      
     } catch (error) {
       return error;
     }
+  }
+  findByEmail(email: string) {
+  console.log(email,'==>>service');
+    return this.http.get(this.apiUserBookingUrl, { params: { email } });
   }
 }
 

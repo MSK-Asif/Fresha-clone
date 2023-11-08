@@ -9,17 +9,25 @@ import { BookingComponent } from './pages/booking/booking.component';
 import { ConfirmationComponent } from './pages/confirmation/confirmation.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { AuthGuard } from './guards/auth.guard';
+import { SuccessComponent } from './components/success/success.component';
+import { ResourcePlanningComponent } from './business/resource-planning/resource-planning.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'register', component: UserRegistrationComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'search/:data', component: SearchResultComponent },
+  { path: 'search', component: SearchResultComponent },
   { path: 'select/:id', component: ShopSelectedComponent },
   { path: 'book/:id', component: BookingComponent },
   { path: 'confirm', component: ConfirmationComponent },
-  { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard]},
+  { path: 'success', component: SuccessComponent },
+  {path: 'resource-planning', component: ResourcePlanningComponent},
+  {
+    path: 'profile',
+    component: UserProfileComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({

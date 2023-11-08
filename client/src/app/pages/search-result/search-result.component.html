@@ -15,9 +15,11 @@
     </div>
 
       
+    </div >
+    <div *ngIf="locations.length" class="h-screen w-2/3">
+      
+      <app-map-all  [locations]="locations"/>
     </div>
-    <div class="w-1/2 md:w-2/3">
-      <app-map [location]="[90.42488, 23.76495]"></app-map>
-    </div>
+    
   </div>
 </div>

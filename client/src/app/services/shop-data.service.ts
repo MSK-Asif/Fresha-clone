@@ -8,16 +8,17 @@ import { Observable } from 'rxjs';
 export class ShopDataService {
   private apiAllShopDataUrl = 'http://localhost:5000/shop-data';
   private apiShopDataUrl = 'http://localhost:5000/select/';
-  private apiSearchDataUrl = 'http://localhost:5000/search/';
+  private apiSearchDataUrl = 'http://localhost:5000/search';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   getAllShopData(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiAllShopDataUrl}`);
   }
-  getShopData(id:string):Observable<any>{
-    return this.http.get<any>(`${this.apiShopDataUrl+id}`);
+  getShopData(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiShopDataUrl + id}`);
   }
-  getAllSearchData(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiSearchDataUrl}`);
+
+  sentSearchData(data: any) {
+    return this.http.get(`${this.apiSearchDataUrl}/${data.id}/${data.location}`); //user gola backend e patacci
   }
 }

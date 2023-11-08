@@ -8,14 +8,15 @@ export const createBooking: RequestHandler = async (req: Request, res: Response)
   try {
       console.log(req.body);
     const session = await createStripeSession(req.body);
-    const { userEmail, shopId, serviceId, teamName, date, time } = req.body;
+    const { userEmail, shopName, serviceName, teamName, date, time, services } = req.body;
     const newBooking: IBooking = new Booking({
       userEmail,
-      shopId,
-      serviceId,
+      shopName,
+      serviceName,
       teamName,
       date,
       time,
+      services
     });
     await newBooking.save();
     res.json({url: session.url});
@@ -44,8 +45,8 @@ export const createBooking: RequestHandler = async (req: Request, res: Response)
         };
       }),
       mode: "payment",
-      success_url: `${redirectBaseUrl}/profile`,
-      cancel_url: `${redirectBaseUrl}`,
+      success_url: `${redirectBaseUrl}/success`,
+      cancel_url: `${redirectBaseUrl}/`,
     });
 
     return session;
