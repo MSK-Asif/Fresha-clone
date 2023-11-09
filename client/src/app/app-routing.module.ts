@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { FlatpickrModule } from 'angularx-flatpickr';
+import { SalonRegistrationComponent } from './business/salon-registration/salon-registration.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -27,7 +28,8 @@ const routes: Routes = [
   { path: 'book/:id', component: BookingComponent },
   { path: 'confirm', component: ConfirmationComponent },
   { path: 'success', component: SuccessComponent },
-  {path: 'resource-planning', component: ResourcePlanningComponent},
+  { path: 'resource-planning', component: ResourcePlanningComponent },
+  { path: 'salon-registration', component: SalonRegistrationComponent },
   {
     path: 'profile',
     component: UserProfileComponent,

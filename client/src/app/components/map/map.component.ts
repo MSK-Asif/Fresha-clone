@@ -10,7 +10,8 @@ import * as mapboxgl from 'mapbox-gl';
 })
 // export class MapComponent implements OnInit {
 export class MapComponent {
-  @Input() location:any;
+  @Input() location: any;
+  marker: any;
   ngOnInit(): void {
     console.log("mapboxgl==>>",this.location);
     (mapboxgl as any).accessToken  ='pk.eyJ1IjoiYXNpZnVycmFobWFucGlhbCIsImEiOiJjbG5qd29ldTEwMjdsMnBsazFsaW1xcm5rIn0.L5kKxav_0VTewsxlvWUS2g';
@@ -24,6 +25,16 @@ export class MapComponent {
     const marker1 = new mapboxgl.Marker({ color: 'black' })
       .setLngLat(this.location)
       .addTo(map);
+    
+    // map.on('click', (e) => {
+    //   console.log(e.lngLat);
+    //   if (this.marker) {
+    //     this.marker.remove();
+    //   }
+    //   this.marker = new mapboxgl.Marker({ color: 'black' })
+    //     .setLngLat(e.lngLat)
+    //     .addTo(map);
+    // })
   }
    
 

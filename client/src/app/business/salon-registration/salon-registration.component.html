@@ -1,0 +1,145 @@
+<div class="container mx-auto w-2/5 p-4">
+  <div class="justify-center items-center mb-8">
+    <h1 class="font-bold font text-4xl text-center p-4">
+      <span routerLink="/">Fresha</span> for Business
+    </h1>
+    <h4 class="font-semibold text-center text-slate-400">
+      Simple, flexible and powerful booking software for your business. And it's
+      subscription-free!
+    </h4>
+  </div>
+
+  <form
+    id="salonForm"
+    class="mt-6 bg-white rounded-lg shadow-md p-6"
+    (ngSubmit)="onSubmit()"
+  >
+    <div class="mb-4">
+      <label for="salon-name" class="block text-sm font-medium text-gray-700"
+        >Salon Name:</label
+      >
+      <input
+        type="text"
+        id="salon-name"
+        name="salon-name"
+        required
+        class="w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500"
+        [(ngModel)]="salonName"
+      />
+    </div>
+    <div class="mb-4">
+      <label for="address" class="block text-sm font-medium text-gray-700"
+        >Address:</label
+      >
+      <textarea
+        id="address"
+        name="address"
+        required
+        rows="4"
+        class="w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500"
+        [(ngModel)]="address"
+      ></textarea>
+    </div>
+    <div class="mb-4">
+      <label for="pictures" class="block text-sm font-medium text-gray-700"
+        >Upload Pictures:</label
+      >
+      <input
+        type="file"
+        id="pictures"
+        name="pictures"
+        multiple
+        class="w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500"
+      />
+    </div>
+
+    <div class="mb-4 max-w-full flex  justify-between mx-auto align-middle text-center space-x-4">
+      <div class="mb-4 flex-1">
+        <div class=" overflow-hidden ">
+          <label for="date" class="text-sm font-medium">Select Closing Days:</label>
+          <input
+            type="date"
+            id="date"
+            name="selectedDate"
+            [(ngModel)]="selectedDate"
+            class=" px-2  h-10 rounded-lg border text-center hover:bg-slate-100 w-full"
+          />
+        </div>
+      </div>
+      <div class="flex-1">
+        <label for="start-time" class=" text-sm font-medium text-gray-700"
+          >Start Time:</label
+        >
+        <input
+          type="time"
+          id="start-time"
+          class="w-full px-4 py-2 h-10 border rounded-md hover:bg-slate-200"
+          placeholder="Start Time"
+          [(ngModel)]="startTime"
+        />
+      </div>
+
+      <div class="flex-1">
+        <label for="end-time" class=" text-sm font-medium text-gray-700"
+          >End Time:</label
+        >
+        <input
+          type="time"
+          id="end-time"
+          class="w-full px-4 py-2 h-10 border rounded-md hover:bg-slate-200"
+          placeholder="End Time"
+          [(ngModel)]="endTime"
+        />
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label for="about-salon" class="block text-sm font-medium text-gray-700"
+        >About Salon:</label
+      >
+      <textarea
+        id="about-salon"
+        name="about-salon"
+        required
+        rows="4"
+        class="w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500"
+        [(ngModel)]="aboutSalon"
+      ></textarea>
+    </div>
+    <div class="mb-4">
+      <label for="category" class="block text-sm font-medium text-gray-700"
+        >Category:</label
+      >
+      <select
+        id="category"
+        name="category"
+        required
+        class="w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500"
+        [(ngModel)]="category"
+      >
+        <option value="Hair">Hair</option>
+        <option value="Nails">Nails</option>
+        <option value="Spa">Spa</option>
+        <option value="Skin Care">Skin Care</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+    <div class="mb-4">
+      <label for="map-location" class="block text-sm font-medium text-gray-700"
+        >Location from Map:</label
+      >
+      <div id="map" class="w-full h-64 border rounded">
+        <app-map-for-business></app-map-for-business>
+      </div>
+    </div>
+    <div class="mt-6">
+      <button
+        type="submit"
+        class="px-4 py-2 w-full bg-slate-900 text-white rounded hover:bg-slate-600"
+        routerLink="/resource-planning"
+      >
+        Register
+      </button>
+    </div>
+  </form>
+</div>

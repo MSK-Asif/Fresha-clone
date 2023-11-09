@@ -84,10 +84,13 @@ export class BookingComponent {
     }
   }
   getSelectedServiceDetails(ids: string[]) {
+    const data = localStorage.getItem('servicesBooked');
+    
+    console.log('local=',data);
     this.selectedServiceInfo = this.shopServicesDetail.filter((service: any) =>
       ids.includes(service.service_id)
     );
-    console.log(this.selectedServiceInfo,'---=');
+    
   }
 
   getSelectedTimeDate(timeDate: any) {

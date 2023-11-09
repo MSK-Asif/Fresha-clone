@@ -1,291 +1,414 @@
-<h1 class="font-bold text-3xl py-4">Fresha for Business</h1>
-<div class="flex space-x-4">
-  <!-- Sidebar (Left Column) -->
-  <div class="w-1/5 h-screen p-4 bg-blue-200">
-    <div class="bg-green-300 py-8">
-      <h2 class="text-2xl">Shop Name</h2>
-      <h2 class="text-xl mb-4">Address</h2>
-    </div>
-
-    <ul>
-      <li><a href="/resource-planning">Home</a></li>
-      <li><a href="/resource-planning">Resource Planning</a></li>
-      <li><a href="/resource-planning">Logout</a></li>
-    </ul>
-  </div>
-
-  <!-- Employee Bookings (Right Column) -->
-  <div class="w-3/4 flex flex-wrap">
-    <!-- Existing card for the first employee -->
-    <div
-      class="w-1/3 h-1/3 p-6 bg-red-200 rounded-xl flex-col space-y-2 justify-center text-center border hover:bg-slate-200"
-    >
-      <!-- Content for the first employee -->
-      <div class="bg-yellow-300 rounded-xl flex-col space-y-2 justify-center">
-        <div class="">
-          <img
-            class="h-20 w-20 mx-auto rounded-full bg-black"
-            src=""
-            alt="Player Image"
-          />
-        </div>
-
-        <div class="mx-auto">
-          <h1 class="text-xl font-medium text-black">Mamber any</h1>
-          <p class="text-gray-500">Maximum available members</p>
-        </div>
-        <!-- <button  class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">Select</button> -->
-      </div>
-    </div>
-
-    <!-- Card for the second employee -->
-    <div
-      class="w-1/3 h-1/3 p-6 bg-white rounded-xl flex-col space-y-2 justify-center text-center border hover:bg-slate-200"
-    >
-      <!-- Content for the second employee -->
-    </div>
-
-    <!-- Card for the third employee -->
-    <div
-      class="w-1/3 h-1/3 p-6 bg-white rounded-xl flex-col space-y-2 justify-center text-center border hover:bg-slate-200"
-    >
-      <div class="row text-center">
-        <div class="col-md-4">
-          <div class="btn-group">
-            <div
-              class="btn btn-primary"
-              mwlCalendarPreviousView
-              [view]="view"
-              [(viewDate)]="viewDate"
-              (viewDateChange)="closeOpenMonthViewDay()"
-            >
-              Previous
-            </div>
-            <div
-              class="btn btn-outline-secondary"
-              mwlCalendarToday
-              [(viewDate)]="viewDate"
-            >
-              Today
-            </div>
-            <div
-              class="btn btn-primary"
-              mwlCalendarNextView
-              [view]="view"
-              [(viewDate)]="viewDate"
-              (viewDateChange)="closeOpenMonthViewDay()"
-            >
-              Next
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <h3>{{ viewDate | calendarDate : view + "ViewTitle" : "en" }}</h3>
-        </div>
-        <div class="col-md-4">
-          <div class="btn-group">
-            <div
-              class="btn btn-primary"
-              (click)="setView(CalendarView.Month)"
-              [class.active]="view === CalendarView.Month"
-            >
-              Month
-            </div>
-            <div
-              class="btn btn-primary"
-              (click)="setView(CalendarView.Week)"
-              [class.active]="view === CalendarView.Week"
-            >
-              Week
-            </div>
-            <div
-              class="btn btn-primary"
-              (click)="setView(CalendarView.Day)"
-              [class.active]="view === CalendarView.Day"
-            >
-              Day
-            </div>
-          </div>
-        </div>
-      </div>
-      <br />
-      <div [ngSwitch]="view">
-        <mwl-calendar-month-view
-          *ngSwitchCase="CalendarView.Month"
-          [viewDate]="viewDate"
-          [events]="events"
-          [refresh]="refresh"
-          [activeDayIsOpen]="activeDayIsOpen"
-          (dayClicked)="dayClicked($event.day)"
-          (eventClicked)="handleEvent('Clicked', $event.event)"
-          (eventTimesChanged)="eventTimesChanged($event)"
+<div class="bg-slate-100 w-full h-full">
+  <div class="max-w-screen-xl mx-auto">
+    <div class="flex flex-row justify-between items-center mr-12 bg-white">
+      <h1 class="font-bold text-3xl py-4"
+      routerLink="/">Fresha</h1>
+      <!-- date and others navigation -->
+      <div class="flex flex-row space-x-2 items-center text-center">
+        <div
+          class="date w-fit h-10 bg-white rounded-md shadow-md overflow-hidden"
         >
-        </mwl-calendar-month-view>
-        <mwl-calendar-week-view
-          *ngSwitchCase="CalendarView.Week"
-          [viewDate]="viewDate"
-          [events]="events"
-          [refresh]="refresh"
-          (eventClicked)="handleEvent('Clicked', $event.event)"
-          (eventTimesChanged)="eventTimesChanged($event)"
-        >
-        </mwl-calendar-week-view>
-        <mwl-calendar-day-view
-          *ngSwitchCase="CalendarView.Day"
-          [viewDate]="viewDate"
-          [events]="events"
-          [refresh]="refresh"
-          (eventClicked)="handleEvent('Clicked', $event.event)"
-          (eventTimesChanged)="eventTimesChanged($event)"
-        >
-        </mwl-calendar-day-view>
-      </div>
-
-      <!-- Everything you see below is just for the demo, you don't need to include it in your app -->
-
-      <br /><br /><br />
-
-      <h3>
-        Edit events
-        <button class="btn btn-primary float-end" (click)="addEvent()">
-          Add new
-        </button>
-        <div class="clearfix"></div>
-      </h3>
-
-      <div class="table-responsive">
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Primary color</th>
-              <th>Secondary + text color</th>
-              <th>Starts at</th>
-              <th>Ends at</th>
-              <th>Remove</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr *ngFor="let event of events">
-              <td>
-                <input
-                  type="text"
-                  class="form-control"
-                  [(ngModel)]="event.title"
-                  (keyup)="refresh.next()"
-                />
-              </td>
-              <td>
-                <input
-                  type="color"
-                  [(ngModel)]="event.color.primary"
-                  (change)="refresh.next()"
-                />
-              </td>
-              <td>
-                <input
-                  type="color"
-                  [(ngModel)]="event.color.secondary"
-                  (change)="refresh.next()"
-                />
-                <input
-                  type="color"
-                  [ngModel]="event.color?.secondaryText ?? '#1e90ff'"
-                  (ngModelChange)="event.color.secondaryText = $event"
-                  (change)="refresh.next()"
-                />
-              </td>
-              <td>
-                <input
-                  class="form-control"
-                  type="text"
-                  mwlFlatpickr
-                  [(ngModel)]="event.start"
-                  (ngModelChange)="refresh.next()"
-                  [altInput]="true"
-                  [convertModelValue]="true"
-                  [enableTime]="true"
-                  dateFormat="Y-m-dTH:i"
-                  altFormat="F j, Y H:i"
-                  placeholder="Not set"
-                />
-              </td>
-              <td>
-                <input
-                  class="form-control"
-                  type="text"
-                  mwlFlatpickr
-                  [(ngModel)]="event.end"
-                  (ngModelChange)="refresh.next()"
-                  [altInput]="true"
-                  [convertModelValue]="true"
-                  [enableTime]="true"
-                  dateFormat="Y-m-dTH:i"
-                  altFormat="F j, Y H:i"
-                  placeholder="Not set"
-                />
-              </td>
-              <td>
-                <button class="btn btn-danger" (click)="deleteEvent(event)">
-                  Delete
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <ng-template #modalContent let-close="close">
-        <div class="modal-header">
-          <h5 class="modal-title">Event action occurred</h5>
-          <button type="button" class="close" (click)="close()">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div>
-            Action:
-            <pre>{{ modalData?.action }}</pre>
-          </div>
-          <div>
-            Event:
-            <pre>{{ modalData?.event | json }}</pre>
+          <!-- Navigation buttons -->
+          <div class="flex justify-between align-middle items-center">
+            <button
+              class="px-2 py-2 text-slate-900 rounded hover:bg-slate-300"
+              (click)="navigate(-1)"
+            >
+              《
+            </button>
+            <div class="text-lg font-bold text-gray-600">
+              {{ formatCurrentDate() }}
+            </div>
+            <button
+              class="px-2 py-2 text-slate-900 rounded hover:bg-slate-300"
+              (click)="navigate(1)"
+            >
+              》
+            </button>
           </div>
         </div>
-        <div class="modal-footer">
+        <div class="addBtn">
           <button
-            type="button"
-            class="btn btn-outline-secondary"
-            (click)="close()"
+            class="w-fit h-10 bg-slate-700 hover:bg-slate-600 text-white font-semibold px-4 rounded-md shadow-md overflow-hidden"
+            (click)="addStaff(1)"
           >
-            OK
+            Add New Staff
           </button>
         </div>
-      </ng-template>
-
-      <!-- Content for the third employee -->
+      </div>
     </div>
 
-    <!-- Card for the fourth employee -->
-    <div
-      class="w-1/3 h-2/3 p-6 bg-white rounded-xl flex-col space-y-2 justify-center text-center border hover:bg-slate-200"
-    >
-      <!-- Content for the fourth employee -->
-    </div>
+    <div class="flex flex-row space-x-4">
+      <!-- Sidebar (Left Column) -->
+      <div
+        class="w-1/5 h-screen p-4 bg-slate-600 text-white border border-slate-300 rounded-lg"
+      >
+        <div class="mx-auto py-4 align-middle text-center">
+          <img
+            src="{{shopDetails?.images[0]}}"
+            alt=""
+            class="mx-auto rounded-lg w-3/4"
+          />
+          <h2 class="text-xl font-bold p-2">{{shopDetails?.shop_name}}</h2>
+          <h2 class="text-sm">{{shopDetails?.address}}</h2>
+          <h2 class="text mb-4">{{shopDetails?.category}}</h2>
+        </div>
 
-    <!-- Card for the fifth employee -->
-    <div
-      class="w-1/3 h-2/3 p-6 bg-white rounded-xl flex-col space-y-2 justify-center text-center border hover:bg-slate-200"
-    >
-      <!-- Content for the fifth employee -->
-    </div>
+        <ul class="space-y-4">
+          <li
+            class="font-bold border py-2 border-slate-900 bg-slate-300 text-center text-slate-800 rounded-md px-4 hover:bg-white"
+          >
+            <a href="/resource-planning">Home</a>
+          </li>
+          <li
+            class="font-bold py-2 bg-white text-slate-800 text-center rounded-md px-4"
+          >
+            <a href="/resource-planning">Resource Planning</a>
+          </li>
+          <li
+            class="font-bold border py-2 border-slate-900 bg-slate-300 text-center text-slate-800 rounded-md px-4 hover:bg-white"
+          >
+            <a href="/resource-planning">Logout</a>
+          </li>
+        </ul>
+      </div>
 
-    <!-- Card for the sixth employee -->
-    <div
-      class="w-1/3 h-2/3 p-6 bg-white rounded-xl flex-col space-y-2 justify-center text-center border hover:bg-slate-200"
-    >
-      <!-- Content for the sixth employee -->
+      <!-- Employee Bookings (Right Column) -------------------------------------------------->
+      <div class="w-3/4 flex-col">
+        <div class="flex flex-row space-x-4">
+          <div
+            class="w-1/3 h-1/4 p-2 rounded-xl flex-col space-y-2 justify-center text-center border hover:bg-slate-200 overflow-hidden"
+            *ngFor="let team of teamMemberNames"
+          >
+            <!-- Content for the first employee -->
+            <div class="rounded-xl flex-col justify-center">
+              <div class="">
+                <img
+                  class="h-20 w-20 mx-auto rounded-full"
+                  src="../../../assets/default-profile-photo.jpg"
+                  alt="Player Image"
+                />
+              </div>
+
+              <div class="mx-auto">
+                <h1 class="text-xl font-medium text-black">{{ team }}</h1>
+                <p class="text-gray-500">Head Barber</p>
+              </div>
+              <div class="space-x-2">
+                <button
+                  class="bg-slate-50 border hover:bg-slate-400 text-white font-bold py-2 px-4 rounded-lg"
+                >
+                  📅
+                </button>
+                <button
+                  class="bg-slate-50 border hover:bg-slate-400 text-slate-700 font-bold py-2 px-4 rounded-lg"
+                >
+                  ×
+                </button>
+                <button
+                  class="bg-slate-50 border hover:bg-slate-400 text-slate-900 font-bold py-2 px-4 rounded-lg"
+                  (click)="addStaffServiceForm(1)"
+                >
+                  ＋
+                </button>
+              </div>
+            </div>
+            <!-- times for the 1sr employee -->
+            <div
+              class="p-6 bg-white rounded-xl flex-col space-y-2 justify-center text-center border"
+            >
+              <div
+                class="flex-auto overflow-hidden"
+                *ngFor="let time of times"
+              >
+                <div
+                  class="mb-4 flex justify-evenly text-center text-slate-400 font-bold p-2 rounded-lg bg-slate-100 hover:bg-slate-100 w-full h-12"
+                  *ngIf="isSelected(team,time)"
+                >
+                  <p>{{ time }}</p>
+                  <p>{{selectedService(team,time) }}</p>
+                </div>
+                <div
+                *ngIf="!isSelected(team,time)"
+                  class="mb-4 flex justify-evenly text-center font-bold align-middle p-2 rounded-lg bg-slate-200 hover:bg-slate-300 w-full h-12 overflow-hidden"
+                >
+                  <p>{{ time }}</p>
+                  <button
+                    class="bg-slate-100 hover:bg-slate-400 text-black font-bold px-4 rounded-lg"
+                    (click)="selectService(time, team)"
+                  >
+                    ✢
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card for the second employee -->
+
+          <!-- Card for the fourth employee -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-------------------------------------------------- all service form ---------------------------------------------------->
+  <div
+    *ngIf="addForm"
+    class="absolute top-0 left-0 right-0 z-50 overflow-x-hidden overflow-y-auto bg-[#00000030] w-full h-full flex justify-center pt-20"
+  >
+    <div class="w-full max-w-[50%]">
+      <div class="shadow-xl p-4 bg-white rounded-lg">
+        <div class="flex justify-between">
+          <h1 class="font-bold text-3xl py-4">Select Services</h1>
+          <button
+            class="hover:bg-slate-200 text-black font-bold px-4 rounded-lg"
+            (click)="endModal()"
+          >
+            ✖
+          </button>
+        </div>
+
+        <div
+          *ngFor="let service of shopServicesDetail"
+          class="mb-4 bg-white hover:bg-slate-200 rounded-lg border border-slate-300 hover:border-slate-700 overflow-hidden"
+        >
+          <!-- select -->
+          <div
+            *ngIf="checkSelected(service.service_id)"
+            class="flex border border-slate-700 rounded-lg items-center py-2 px-4"
+          >
+            <div class="flex-1">
+              <h2 class="text-xl font-semibold">{{ service.service_name }}</h2>
+              <p class="">{{ service.duration }}</p>
+              <p class="font-semibold">${{ service.price }}</p>
+            </div>
+            <!-- + button -->
+            <button
+              class="bg-slate-800 p-2 rounded-lg hover:bg-slate-500"
+              (click)="toggleIcon(service)"
+            >
+              <svg
+                class="h-4 w-4 text-white mr-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <!-- not selected -->
+          <div
+            *ngIf="!checkSelected(service.service_id)"
+            class="flex items-center py-2 px-4"
+          >
+            <div class="flex-1">
+              <h2 class="text-xl font-semibold">{{ service.service_name }}</h2>
+              <p class="">{{ service.duration }}</p>
+              <p class="font-semibold">${{ service.price }}</p>
+            </div>
+            <!-- + button -->
+            <button
+              class="bg-slate-400 p-2 rounded-lg hover:bg-slate-500"
+              (click)="toggleIcon(service)"
+            >
+              <svg
+                class="h-4 w-4 text-slate-950 mr-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- -----------------------------------------------add new staff form -------------------------------------------- -->
+      <div
+        *ngIf="addStaffForm"
+        class="absolute top-0 left-0 right-0 z-50 overflow-x-hidden overflow-y-auto bg-[#00000030] w-full h-full flex justify-center pt-20"
+      >
+        <div class="w-full max-w-[50%]">
+          <div class="shadow-xl p-4 bg-white rounded-lg">
+            <div class="flex justify-between">
+              <h1 class="text-2xl font-bold">Add New Staff</h1>
+              <button
+                class="hover:bg-slate-200 text-black font-bold px-4 rounded-lg"
+                (click)="addStaff(0)"
+              >
+                ✖
+              </button>
+            </div>
+
+            <div class="container mx-auto p-4">
+              <form id="staffForm" class="mt-4">
+                <div class="mb-4">
+                  <label
+                    for="name"
+                    class="block text-sm font-medium text-gray-700"
+                    >Name:</label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+                <div class="mb-4">
+                  <label
+                    for="role"
+                    class="block text-sm font-medium text-gray-700"
+                    >Role:</label
+                  >
+                  <input
+                    type="text"
+                    id="role"
+                    name="role"
+                    required
+                    class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+                <div class="mb-4 flex flex-row space-x-4">
+                  <label
+                    for="time"
+                    class="block text-sm font-medium text-gray-700"
+                    >Start Time:</label
+                  >
+                  <input
+                    type="time"
+                    id="time"
+                    name="time"
+                    placeholder="Start Time"
+                    class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                  />
+                  <label
+                    for="time"
+                    class="block text-sm font-medium text-gray-700"
+                    >End Time:</label
+                  >
+                  <input
+                    type="time"
+                    id="time"
+                    name="time"
+                    placeholder="End Time"
+                    class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+                <div class="mt-4">
+                  <button
+                    type="submit"
+                    class="px-4 py-2 w-full bg-slate-500 text-white rounded hover:bg-slate-600"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- -----------------------------------------------add staff sercices-------------------------------------------- -->
+      <div
+        *ngIf="addStaffSercvice"
+        class="absolute top-0 left-0 right-0 z-50 overflow-x-hidden overflow-y-auto bg-[#00000030] w-full h-full flex justify-center pt-20"
+      >
+        <div class="w-full max-w-[50%]">
+          <div class="shadow-xl p-4 bg-white rounded-lg">
+            <div class="flex justify-between">
+              <h1 class="text-2xl font-bold">Add New Service</h1>
+              <button
+                class="hover:bg-slate-200 text-black font-bold px-4 rounded-lg"
+                (click)="addStaffServiceForm(0)"
+              >
+                ✖
+              </button>
+            </div>
+
+            <div class="container mx-auto p-4">
+              <form id="serviceForm" class="mt-4">
+                <div class="mb-4">
+                  <label
+                    for="service-name"
+                    class="block text-sm font-medium text-gray-700"
+                    >Service Name:</label
+                  >
+                  <input
+                    type="text"
+                    id="service-name"
+                    name="service-name"
+                    required
+                    class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+                <div class="mb-4">
+                  <label
+                    for="service-id"
+                    class="block text-sm font-medium text-gray-700"
+                    >Service ID:</label
+                  >
+                  <input
+                    type="text"
+                    id="service-id"
+                    name="service-id"
+                    required
+                    class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+                <div class="mb-4">
+                  <label
+                    for="price"
+                    class="block text-sm font-medium text-gray-700"
+                    >Price:</label
+                  >
+                  <input
+                    type="number"
+                    id="price"
+                    name="price"
+                    required
+                    class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+                <div class="mb-4">
+                  <label
+                    for="duration"
+                    class="block text-sm font-medium text-gray-700"
+                    >Duration (minutes):</label
+                  >
+                  <input
+                    type="number"
+                    id="duration"
+                    name="duration"
+                    required
+                    class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+                <div class="mt-4">
+                  <button
+                    type="submit"
+                    class="px-4 py-2 w-full bg-slate-500 text-white rounded hover:bg-slate-600"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

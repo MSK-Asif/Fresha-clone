@@ -32,6 +32,8 @@ import { MapAllComponent } from './components/map-all/map-all.component';
 import { ResourcePlanningComponent } from './business/resource-planning/resource-planning.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { SalonRegistrationComponent } from './business/salon-registration/salon-registration.component';
+import { MapForBusinessComponent } from './business/map-for-business/map-for-business.component';
 
 
 
@@ -61,6 +63,9 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     SuccessComponent,
     MapAllComponent,
     ResourcePlanningComponent,
+    SalonRegistrationComponent,
+    MapForBusinessComponent,
+    
   ],
   imports: [
     BrowserModule,

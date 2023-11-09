@@ -54,6 +54,11 @@ export class SearchResultComponent {
       };
       this.locations.push(formatData);
     });
-    console.log('-----', this.locations);
+    console.log('-----', this.data);
   }
+  sortByRating() { 
+    const sortedData = this.data.sort((a:any, b:any) => b.ratings - a.ratings);
+    this.data = sortedData;
+  }
+  
 }

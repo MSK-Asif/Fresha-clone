@@ -1,4 +1,4 @@
-<h1 class="font-bold text-3xl py-4">Select Time and Date</h1>
+<!-- <h1 class="font-bold text-3xl py-4">Select Time and Date</h1>
 
 <form #datetimeForm="ngForm">
   <div class="flex flex-col md:flex-row md:space-x-2">
@@ -19,4 +19,63 @@
       
     </div>
   </div>
-</form>
+</form> -->
+
+
+
+<h1 class="font-bold text-3xl py-4">Select Time and Date</h1>
+
+<form #datetimeForm="ngForm">
+  <div class="flex flex-col md:space-x-2">
+    <div class="flex-auto overflow-hidden">
+      <label for="date" class="font-bold">Select Date</label>
+      <input
+        type="date"
+        id="date"
+        name="selectedDate"
+        [(ngModel)]="selectedDate"
+        (input)="logSelectedDate()"
+        class="block p-2 rounded-lg bg-slate-200 text-center hover:bg-slate-300 font-bold  text-slate-500  w-full h-12"
+      />
+    </div>
+    <div class="flex-auto overflow-hidden">
+      <h1 class="font-bold mt-4">Select Time</h1>
+      <p *ngFor="let time of allTimes" (click)="timeClick(time)" class="mb-4 text-center font-bold align-middle block p-2 rounded-lg bg-slate-200 hover:bg-slate-300 w-full h-12">{{time}}</p>
+      
+    </div>
+  </div>
+</form> 
+
+<!-- <h1 class="font-bold text-3xl py-4">Select Time and Date</h1>
+
+<form #datetimeForm="ngForm">
+  <div class="flex flex-col md:space-x-2">
+    <div class="flex-auto overflow-hidden">
+      <div class=" date w-fit h-10 bg-white rounded-md shadow-md overflow-hidden">
+           Navigation buttons -->
+          <!-- <div class="flex justify-between align-middle items-center">
+            <button
+              class="px-2 py-2 text-slate-900 rounded hover:bg-slate-300"
+              (click)="navigate(-1)"
+            >
+              《
+            </button>
+            <div class="text-lg font-bold text-gray-600">
+              {{ formatCurrentDate() }}
+            </div>
+            <button
+              class="px-2 py-2 text-slate-900 rounded hover:bg-slate-300"
+              (click)="navigate(1)"
+            >
+              》
+            </button>
+          </div>
+        </div>
+    </div>
+    <div class="flex-auto overflow-hidden">
+      <h1 class="font-bold">Select Time</h1>
+      <p *ngFor="let time of allTimes" (click)="timeClick(time)" class="mb-4 text-center font-bold align-middle block p-2 rounded-lg bg-slate-200 hover:bg-slate-300 w-full h-12">{{time}}</p>
+      
+    </div>
+  </div>
+</form> -->

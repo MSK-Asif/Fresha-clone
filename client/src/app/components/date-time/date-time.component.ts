@@ -10,7 +10,7 @@ export class DateTimeComponent {
   allDateBookedTimes!: string[];
   availableTimes!: string[];
   shop!: any;
-  selectedDate: any='2023-10-14';
+  selectedDate: any = '2023-11-09';
   initTimes: string[] = [
     '9:00 AM',
     '9:30 AM',
@@ -27,7 +27,7 @@ export class DateTimeComponent {
     '3:00 PM',
   ];
   allTimes: string[] = this.initTimes;
-  selectedTime: string="10:00 AM";
+  selectedTime: string = '';
   @Input() nameAndDetail!: string[];
 
   @Output() getSelectedTimeDate = new EventEmitter<any>();
@@ -67,10 +67,36 @@ export class DateTimeComponent {
     });
   }
   timeClick(time: any) {
-    this.selectedTime = time;// console.log('time clicked', val);
+    this.selectedTime = time; // console.log('time clicked', val);
     this.getSelectedTimeDate.emit({
       time: this.selectedTime,
       date: this.selectedDate,
     });
   }
+
+  // currentDate: Date = new Date();
+
+
+  // selectServiceVal = 0;
+  // addForm = false;
+  // selectService(val: number) {
+  //   if (val === 1) {
+  //     return (this.addForm = true);
+  //   } else {
+  //     return (this.addForm = false);
+  //   }
+  // }
+  // formatCurrentDate(): string {
+  //   const options: Intl.DateTimeFormatOptions = {
+  //     year: 'numeric',
+  //     month: 'long',
+  //     day: 'numeric',
+  //   };
+  //   return this.currentDate.toLocaleDateString(undefined, options);
+  // }
+
+  // navigate(days: number): void {
+  //   this.currentDate.setDate(this.currentDate.getDate() + days);
+  //   console.log('dt=', this.currentDate);
+  // }
 }

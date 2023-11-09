@@ -5,6 +5,7 @@ import { allShopInfo, shopInfo } from "../controllers/shop.controller";
 import { createBooking} from "../controllers/booking.controller";
 import { findShops } from "../controllers/search.controller";
 import { findUserBooking } from "../controllers/findBooking.controller";
+import { createOwnerBooking } from "../controllers/business.controller";
 
 const router = Router();
 
@@ -26,6 +27,8 @@ router.get("/shop-data", allShopInfo);//All shop data
 router.get("/select/:id", shopInfo);//single shop details
 
 router.post("/serviceBooking", createBooking);//book service
+
+router.post("/business", createOwnerBooking);//book service
 
 
 //search
