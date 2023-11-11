@@ -227,18 +227,22 @@ export class ResourcePlanningComponent {
     this.currentDate.setDate(this.currentDate.getDate() + days);
   }
 
-  addStaff(val: number) {
-    if (val === 1) {
-      return (this.addStaffForm = true);
+  addStaff(num: number) {
+    console.log(num,'==');
+    if (num === 1) {
+     
+      this.addStaffForm = true;
+       console.log(num, '===', this.addStaffForm);
     } else {
-      return (this.addStaffForm = false);
+      this.addStaffForm = false;
     }
   }
   addStaffServiceForm(val: number) {
     if (val === 1) {
-      return (this.addStaffSercvice = true);
+      this.addStaffSercvice = true;
+      console.log(this.addStaffSercvice, '-=-');
     } else {
-      return (this.addStaffSercvice = false);
+      this.addStaffSercvice = false;
     }
   }
 
